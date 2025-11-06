@@ -1,1 +1,119 @@
 @import "tailwindcss";
+
+
+/* BACKGROUND CONTAINER */
+.space-bg {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 50%, #0b0e26, #020409 80%);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* TWINKLING SMALL STARS */
+.space-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.4;
+  animation: twinkle 3s infinite alternate;
+}
+@keyframes twinkle {
+  from{ opacity: 0.2; }
+  to{ opacity: 0.6; }
+}
+
+/* SHOOTING STARS */
+.space-bg::after {
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  width: 2px;
+  height: 200px;
+  background: linear-gradient(white, transparent);
+  transform: rotate(45deg);
+  animation: shooting 3s infinite ease-in-out;
+  opacity: 0.7;
+}
+@keyframes shooting {
+  0% { transform: translateX(0) translateY(0) rotate(45deg); opacity: 1; }
+  100% { transform: translateX(-500px) translateY(500px) rotate(45deg); opacity: 0; }
+}
+
+/* NEBULA GALAXY CLOUD */
+.space-bg .nebula {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(64,0,143,0.4), transparent 70%);
+  filter: blur(80px);
+  animation: float 12s infinite alternate ease-in-out;
+}
+@keyframes float {
+  from { transform: translateY(0);}
+  to { transform: translateY(-40px);}
+}
+
+/* AURORA WAVE */
+.space-bg .aurora {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(120deg, rgba(0,255,200,0.2), rgba(0,100,255,0.2));
+  filter: blur(120px);
+  animation: wave 8s infinite alternate ease-in-out;
+}
+@keyframes wave {
+  from { transform: translateX(-10%); }
+  to { transform: translateX(10%); }
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-start infinite;
+}
+
+
+
+/* Tailwind helper utilities for the particles background */
+@layer utilities {
+  .particles-bg {
+    @apply fixed inset-0 z-0 pointer-events-none;
+  }
+  /* Stronger override in case Particles sets inline position/z-index */
+  .particles-bg--force * {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+}
