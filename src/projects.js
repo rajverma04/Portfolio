@@ -1,7 +1,7 @@
 import React from "react";
-import { FaExternalLinkAlt, FaCode, FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
-export default function Projects() {
+const Projects = () => {
   const projects = [
     {
       title: "Swiggy Clone",
@@ -17,10 +17,8 @@ export default function Projects() {
       description:
         "A full-stack web app for generating GST invoices, built using React.js and MongoDB. Deployed and live at Vercel.",
       tech: ["React.js", "MongoDB", "Express.js", "Node.js"],
-      // This is the URL that is broken on Vercel's side.
-      // You only change this if you have a new, working URL.
-      liveLink: "https://gstinvoice.vercel.app", 
-      githubLink: "#",
+      liveLink: "https://gstinvoice.vercel.app",
+      githubLink: "https://github.com/rajverma04/gstinvoice",
       date: "Aug 2025",
     },
     {
@@ -43,82 +41,124 @@ export default function Projects() {
     },
   ];
 
+  const openInNewTab = (url) => {
+    if (!url || url === "#") return;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section
       id="projects"
-      className="py-20 bg-black text-white min-h-screen flex flex-col items-center justify-center"
+      className="py-20 bg-black text-white min-h-screen flex flex-col items-center"
     >
-      {/* Title */}
-      <h2 className="text-4xl sm:text-5xl font-bold mb-10 text-[#a855f7] text-center">
-        💻 My Projects
-      </h2>
+      <div className="max-w-6xl w-full px-6">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-center text-[#a855f7]">
+          💻 My Projects
+        </h2>
+        <p className="text-center text-gray-400 mb-10 max-w-3xl mx-auto">
+          A selection of projects demonstrating full-stack development, API
+          integrations and practical system design.
+        </p>
 
-      <div className="max-w-6xl w-full px-6 flex flex-wrap justify-center gap-8">
-        {projects.map((project, index) => (
-            
-          <div
-            key={index}
-            className="group bg-[#0f172a] border border-[#a855f7]/30 rounded-xl p-6 w-[320px] sm:w-[360px] 
-                       shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] 
-                       transition-all duration-300 hover:-translate-y-2"
-          >
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="text-xl font-semibold text-[#a855f7]">{project.title}</h3>
-              <span className="text-sm text-gray-400">{project.date}</span>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project, i) => {
+            const isLive = project.liveLink && project.liveLink !== "#";
+            const hasGithub = project.githubLink && project.githubLink !== "#";
 
-            <p className="text-gray-300 text-sm mb-3">{project.description}</p>
+            return (
+              <article
+                key={i}
+                className="group relative bg-[#0f172a] border border-[#a855f7]/25 rounded-2xl p-6
+                           shadow-[0_0_18px_rgba(168,85,247,0.18)] hover:shadow-[0_0_36px_rgba(168,85,247,0.35)]
+                           transition-all duration-300 transform hover:-translate-y-2"
+              >
+                {/* header */}
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-xl font-semibold text-[#a855f7]">
+                    {project.title}
+                  </h3>
+                  <span className="text-sm text-gray-400 bg-transparent px-2 py-1 rounded">
+                    {project.date}
+                  </span>
+                </div>
 
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.tech.map((tech, i) => (
-                
-                <span
-                  key={i}
-                  className="bg-[#a855f7]/20 text-[#a855f7] text-xs font-medium px-3 py-1 rounded-full"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+                {/* description */}
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                  {project.description}
+                </p>
 
-            {/* Links */}
-            <div className="flex items-center gap-4">
-              {/* Live Demo Link */}
-              {project.liveLink !== "#" ? (
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#7dd3fc] hover:text-[#a855f7] transition text-sm cursor-pointer hover:underline"
-                >
-                  <FaExternalLinkAlt /> Live Demo
-                </a>
-              ) : (
-                <span className="flex items-center gap-2 text-gray-500 text-sm cursor-not-allowed">
-                  <FaExternalLinkAlt /> Demo soon
-                </span>
-              )}
+                {/* tech */}
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.tech.map((t, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs font-medium px-3 py-1 rounded-full
+                                 bg-[#a855f7]/10 text-[#a855f7] inline-block"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
 
-              {/* GitHub Link */}
-              {project.githubLink !== "#" ? (
-                <a
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-          
-                  className="flex items-center gap-2 text-[#7dd3fc] hover:text-[#a855f7] transition text-sm cursor-pointer hover:underline"
-                >
-                  <FaGithub /> Code
-                </a>
-              ) : (
-                <span className="flex items-center gap-2 text-gray-500 text-sm cursor-not-allowed">
-                  <FaCode /> Code soon
-                </span>
-              )}
-            </div>
-          </div>
-        ))}
+                {/* actions */}
+                <div className="flex items-center gap-3">
+                  {/* Live Demo: if liveLink exists use anchor, otherwise disabled button */}
+                  {isLive ? (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => openInNewTab(project.liveLink)} // fallback
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition
+                                 bg-gradient-to-r from-[#34d399] to-[#10b981] text-white hover:opacity-95"
+                    >
+                      <FaExternalLinkAlt className="w-4 h-4" />
+                      <span>Live Demo</span>
+                    </a>
+                  ) : (
+                    <button
+                      disabled
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition
+                                 bg-gray-700/40 text-gray-400 cursor-not-allowed"
+                      aria-disabled
+                    >
+                      <FaExternalLinkAlt className="w-4 h-4" />
+                      <span>Live Demo</span>
+                    </button>
+                  )}
+
+                  {/* GitHub: use anchor when available */}
+                  {hasGithub ? (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => openInNewTab(project.githubLink)} // fallback
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition
+                                 bg-[#111827] text-white hover:bg-[#0b1220]"
+                    >
+                      <FaGithub className="w-4 h-4" />
+                      <span>Source</span>
+                    </a>
+                  ) : (
+                    <button
+                      disabled
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition
+                                 bg-gray-700/40 text-gray-400 cursor-not-allowed"
+                      aria-disabled
+                    >
+                      <FaGithub className="w-4 h-4" />
+                      <span>Source</span>
+                    </button>
+                  )}
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Projects;

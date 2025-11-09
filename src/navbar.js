@@ -1,88 +1,139 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faEnvelope,
-  faStar,
-  faLaptopCode,
-} from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import React from "react";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
-export default function Navbar() {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
+const Projects = () => {
+  const projects = [
+    {
+      title: "Swiggy Clone",
+      description:
+        "Developed a web application that fetches real-time restaurant and menu data using the Swiggy Live API. Built with React.js and styled for responsive performance.",
+      tech: ["React.js", "API Integration", "CSS"],
+      liveLink: "#",
+      githubLink: "#",
+      date: "Oct 2025",
+    },
+    {
+      title: "GST-INVOICE GENERATOR",
+      description:
+        "A full-stack web app for generating GST invoices, built using React.js and MongoDB. Deployed and live at Vercel.",
+      tech: ["React.js", "MongoDB", "Express.js", "Node.js"],
+      liveLink: "https://gstinvoice.vercel.app",
+      githubLink: "https://github.com/rajverma04/gstinvoice",
+      date: "Aug 2025",
+    },
+    {
+      title: "AI CHATBOT",
+      description:
+        "A personalized AI-powered chatbot designed to assist students with learning and Q&A. Focused on user experience and intelligent interactions.",
+      tech: ["Python", "Flask", "NLP"],
+      liveLink: "#",
+      githubLink: "#",
+      date: "Apr 2025",
+    },
+    {
+      title: "File Distributed System",
+      description:
+        "Developed a distributed file system for efficient file storage and access using Flask and C++. Focused on backend architecture and scalability.",
+      tech: ["Flask", "C++", "Networking"],
+      liveLink: "#",
+      githubLink: "#",
+      date: "Apr 2025",
+    },
+  ];
 
-  const handleGitHubClick = () => {
-    window.open("https://github.com/rajverma04", "_blank");
-  };
-
-  const handleLinkedinClick = () => {
-    window.open("https://www.linkedin.com/in/rajverma04/", "_blank");
+  const openInNewTab = (url) => {
+    if (!url || url === "#") return;
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-80 backdrop-blur-md z-50 py-3 sm:py-4">
-      <ul className="flex justify-center gap-8 sm:gap-16 md:gap-20 text-base sm:text-lg">
-        {/* About */}
-        <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
-          onClick={() => scrollToSection("about")}
-        >
-          <FontAwesomeIcon icon={faUser} className="w-5 h-5" />
-          <span className="hidden sm:inline">About</span>
-        </li>
+    <section
+      id="projects"
+      className="py-20 bg-black text-white min-h-screen flex flex-col items-center"
+    >
+      <div className="max-w-6xl w-full px-6">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-center text-[#a855f7]">
+          💻 My Projects
+        </h2>
+        <p className="text-center text-gray-400 mb-10 max-w-3xl mx-auto">
+          A selection of projects demonstrating full-stack development, API
+          integrations and practical system design.
+        </p>
 
-        {/* Skills */}
-        <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
-          onClick={() => scrollToSection("skills")}
-        >
-          <FontAwesomeIcon icon={faStar} className="w-5 h-5" />
-          <span className="hidden sm:inline">Skills</span>
-        </li>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project, i) => {
+            const isLive = project.liveLink && project.liveLink !== "#";
+            const hasGithub = project.githubLink && project.githubLink !== "#";
 
-        {/* Contact */}
-        <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
-          onClick={() => scrollToSection("contact")}
-        >
-          <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5" />
-          <span className="hidden sm:inline">Contact</span>
-        </li>
+            return (
+              <article
+                key={i}
+                className="group relative bg-[#0f172a] border border-[#a855f7]/25 rounded-2xl p-6
+                           shadow-[0_0_18px_rgba(168,85,247,0.18)] hover:shadow-[0_0_36px_rgba(168,85,247,0.35)]
+                           transition-all duration-300 transform hover:-translate-y-2"
+              >
+                {/* header */}
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-xl font-semibold text-[#a855f7]">
+                    {project.title}
+                  </h3>
+                  <span className="text-sm text-gray-400 bg-transparent px-2 py-1 rounded">
+                    {project.date}
+                  </span>
+                </div>
 
-        {/* Projects */}
-        <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
-          onClick={() => scrollToSection("projects")}
-        >
-          <FontAwesomeIcon icon={faLaptopCode} className="w-5 h-5" />
-          <span className="hidden sm:inline">Projects</span>
-        </li>
+                {/* description */}
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                  {project.description}
+                </p>
 
-        {/* GitHub */}
-        <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
-          onClick={handleGitHubClick}
-        >
-          <FontAwesomeIcon icon={faGithub} className="w-6 h-6" />
-          <span className="hidden sm:inline">GitHub</span>
-        </li>
+                {/* tech */}
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.tech.map((t, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs font-medium px-3 py-1 rounded-full
+                                 bg-[#a855f7]/10 text-[#a855f7] inline-block"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
 
-        {/* LinkedIn */}
-        <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
-          onClick={handleLinkedinClick}
-        >
-          <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6" />
-          <span className="hidden sm:inline">LinkedIn</span>
-        </li>
-      </ul>
-    </nav>
+                {/* actions */}
+                <ul className="flex items-center gap-3">
+                  {/* Live Demo */}
+                  <li
+                    onClick={() => isLive && openInNewTab(project.liveLink)}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition  ${isLive
+                        ? "bg-linear-to-r from-[#34d399] to-[#098a5f] text-white hover:opacity-95 hover:scale-105 cursor-pointer"
+                        : "bg-gray-700/40 text-gray-400 cursor-not-allowed"
+                      }`}
+                  >
+                    <FaExternalLinkAlt className="w-4 h-4" />
+                    <span>Live Demo</span>
+                  </li>
+
+                  {/* GitHub Source */}
+                  <li
+                    onClick={() => hasGithub && openInNewTab(project.githubLink)}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition ${hasGithub
+                        ? "bg-[#111827] text-white hover:bg-[#0b1220] hover:scale-105 cursor-pointer"
+                        : "bg-gray-700/40 text-gray-400 cursor-not-allowed"
+                      }`}
+                  >
+                    <FaGithub className="w-4 h-4" />
+                    <span>Source</span>
+                  </li>
+                  
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
-}
+};
+
+export default Projects;
