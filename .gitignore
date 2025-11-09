@@ -49,3 +49,4 @@ coverage/
 
 # vercel build output (not needed to push)
 .vercel/
+build/
