@@ -102,20 +102,19 @@
   animation: blink 1s step-start infinite;
 }
 
-
-
-/* Tailwind helper utilities for the particles background */
-@layer utilities {
-  .particles-bg {
-    @apply fixed inset-0 z-0 pointer-events-none;
-  }
-  /* Stronger override in case Particles sets inline position/z-index */
-  .particles-bg--force * {
-    position: fixed !important;
-    inset: 0 !important;
-    z-index: 0 !important;
-    pointer-events: none !important;
-  }
+/* Force pointer events on all project buttons */
+#projects * {
+  pointer-events: auto !important;
 }
 
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
 

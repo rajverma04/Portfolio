@@ -1,4 +1,3 @@
-import React from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const Projects = () => {
@@ -36,14 +35,17 @@ const Projects = () => {
         "Developed a distributed file system for efficient file storage and access using Flask and C++. Focused on backend architecture and scalability.",
       tech: ["Flask", "C++", "Networking"],
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/rajverma04/Distribute-File-System",
       date: "Apr 2025",
     },
   ];
 
   const openInNewTab = (url) => {
-    if (!url || url === "#") return;
-    window.open(url, "_blank", "noopener,noreferrer");
+    if (!url || url === "#") {
+      return; // Do nothing for invalid URLs
+    } else {
+      window.open(url, "_blank", "noopener,noreferrer"); // Open valid URLs
+    }
   };
 
   return (
@@ -101,57 +103,33 @@ const Projects = () => {
                 </div>
 
                 {/* actions */}
-                <div className="flex items-center gap-3">
-                  {/* Live Demo: if liveLink exists use anchor, otherwise disabled button */}
-                  {isLive ? (
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => openInNewTab(project.liveLink)} // fallback
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition
-                                 bg-gradient-to-r from-[#34d399] to-[#10b981] text-white hover:opacity-95"
-                    >
-                      <FaExternalLinkAlt className="w-4 h-4" />
-                      <span>Live Demo</span>
-                    </a>
-                  ) : (
-                    <button
-                      disabled
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition
-                                 bg-gray-700/40 text-gray-400 cursor-not-allowed"
-                      aria-disabled
-                    >
-                      <FaExternalLinkAlt className="w-4 h-4" />
-                      <span>Live Demo</span>
-                    </button>
-                  )}
+                <ul className="flex items-center gap-3">
+                  {/* Live Demo */}
+                  <li
+                    onClick={() => isLive && openInNewTab(project.liveLink)}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition ${isLive
+                        ? "bg-gradient-to-r from-[#34d399] to-[#098a5f] text-white hover:opacity-95 hover:scale-105 cursor-pointer relative z-10"
+                        : "bg-gray-700/40 text-gray-400 cursor-not-allowed relative z-10"
+                      }`}
+                    style={{ position: 'relative', zIndex: 10 }}
+                  >
+                    <FaExternalLinkAlt className="w-4 h-4" />
+                    <span>Live Demo</span>
+                  </li>
 
-                  {/* GitHub: use anchor when available */}
-                  {hasGithub ? (
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => openInNewTab(project.githubLink)} // fallback
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition
-                                 bg-[#111827] text-white hover:bg-[#0b1220]"
-                    >
-                      <FaGithub className="w-4 h-4" />
-                      <span>Source</span>
-                    </a>
-                  ) : (
-                    <button
-                      disabled
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition
-                                 bg-gray-700/40 text-gray-400 cursor-not-allowed"
-                      aria-disabled
-                    >
-                      <FaGithub className="w-4 h-4" />
-                      <span>Source</span>
-                    </button>
-                  )}
-                </div>
+                  {/* GitHub Source */}
+                  <li
+                    onClick={() => hasGithub && openInNewTab(project.githubLink)}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition ${hasGithub
+                        ? "bg-[#111827] text-white hover:bg-[#0b1220] hover:scale-105 cursor-pointer relative z-10"
+                        : "bg-gray-700/40 text-gray-400 cursor-not-allowed relative z-10"
+                      }`}
+                    style={{ position: 'relative', zIndex: 10 }}
+                  >
+                    <FaGithub className="w-4 h-4" />
+                    <span>Source</span>
+                  </li>
+                </ul>
               </article>
             );
           })}

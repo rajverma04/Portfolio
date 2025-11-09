@@ -5,7 +5,7 @@ import "./src/index.css";
 import TechStack from "./src/techStack";
 import Navbar from "./src/navbar";
 import About from "./src/About";
-import Resume from "./resume";
+import Resume from "./src/resume";
 import Contact from "./src/contact";
 import Projects from "./src/projects";
 import Education from "./src/education";
@@ -41,11 +41,11 @@ function Portfolio() {
         {/* Conding Platform */}
         <CodingProfiles/>
 
-        {/* Contact Section */}
-       <Contact/>
-
        {/* Education Section */}
        <Education/>
+
+       {/* Contact Section */}
+       <Contact/>
       </main>
     </div>
   );

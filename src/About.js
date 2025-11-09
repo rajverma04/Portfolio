@@ -1,9 +1,16 @@
 import Body from "./body";
-import RotatingText from "../RotatingText/RotatingText";
-import GradientText from "../GradientText/GradientText";
 import { Link } from "react-router-dom";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import RotatingText from "../RotatingText/RotatingText";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function About() {
+  const handleGitHubClick = () => {
+    window.open("https://github.com/rajverma04", "_blank");
+  };
+  const handleLinkedinClick = () => {
+    window.open("https://www.linkedin.com/in/rajverma04/", "_blank");
+  };
   return (
     <section
       id="about"
@@ -36,14 +43,10 @@ export default function About() {
           />
         </div>
 
-        {/* Gradient Subheading */}
-        <GradientText
-          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-          animationSpeed={3}
-          showBorder={false}
-        >
-          <h3 className="text-2xl sm:text-3xl">Full Stack Web Developer</h3>
-        </GradientText>
+      
+<h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-size-200 animate-gradient">
+  Full Stack Web Developer
+</h1>
 
         {/* Description */}
         <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-md">
@@ -52,7 +55,7 @@ export default function About() {
         </p>
 
         {/* ✅ Centered Button — Opens Resume in New Tab */}
-        <div className="pt-2">
+        <div className="pt-2 flex gap-3">
           <Link
             to="/resume"
             target="_blank"
@@ -61,7 +64,27 @@ export default function About() {
           >
             View Resume
           </Link>
+
+          {/* GitHub */}
+          <li
+            className="inline-block bg-[#635bff] hover:bg-[#5146e0] text-white font-semibold px-6 py-2 rounded-lg transition duration-300 shadow-lg hover:shadow-[#635bff]/50 cursor-pointer"
+            onClick={handleGitHubClick}
+          >
+            <FontAwesomeIcon icon={faGithub} className="w-6 h-6" />
+            <span className="hidden sm:inline">GitHub</span>
+          </li>
+
+          {/* LinkedIn */}
+          <li
+            className="inline-block bg-[#635bff] hover:bg-[#5146e0] text-white font-semibold px-6 py-2 rounded-lg transition duration-300 shadow-lg hover:shadow-[#635bff]/50 cursor-pointer"
+            onClick={handleLinkedinClick}
+          >
+            <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6" />
+            <span className="hidden sm:inline">LinkedIn</span>
+          </li>
+
         </div>
+
       </div>
     </section>
   );
