@@ -1,5 +1,5 @@
 const profileImage = new URL("./image/dsc_0499.jpg", import.meta.url).href;
-import TechStack from "./techStack";
+// import TechStack from "./techStack";
 
 export default function Body() {
     return (
