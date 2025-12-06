@@ -5,7 +5,7 @@ import {
   faStar,
   faLaptopCode,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const scrollToSection = (sectionId) => {
@@ -19,11 +19,16 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-80 backdrop-blur-md z-50 py-3 sm:py-4">
+    <motion.nav
+      initial={{ y: -100, opacity: 0, x: "-50%" }}
+      animate={{ y: 0, opacity: 1, x: "-50%" }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+      className="fixed top-0 left-1/2 w-full z-50 py-3 sm:py-4"
+    >
       <ul className="flex justify-center gap-8 sm:gap-16 md:gap-20 text-base sm:text-lg">
         {/* About */}
         <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
+          className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
           onClick={() => scrollToSection("about")}
         >
           <FontAwesomeIcon icon={faUser} className="w-5 h-5" />
@@ -32,7 +37,7 @@ export default function Navbar() {
 
         {/* Skills */}
         <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
+          className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
           onClick={() => scrollToSection("skills")}
         >
           <FontAwesomeIcon icon={faStar} className="w-5 h-5" />
@@ -41,7 +46,7 @@ export default function Navbar() {
 
         {/* Contact */}
         <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
+          className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
           onClick={() => scrollToSection("contact")}
         >
           <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5" />
@@ -50,13 +55,13 @@ export default function Navbar() {
 
         {/* Projects */}
         <li
-          className="hover:text-green-600 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
+          className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
           onClick={() => scrollToSection("projects")}
         >
           <FontAwesomeIcon icon={faLaptopCode} className="w-5 h-5" />
           <span className="hidden sm:inline">Projects</span>
         </li>
       </ul>
-    </nav>
+    </motion.nav>
   );
 }

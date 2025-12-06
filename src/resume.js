@@ -1,163 +1,167 @@
-import { MdOutlineEmail } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoLogoLinkedin } from "react-icons/io";
-import { FaGithub } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
-
-import { MdOutlineEmail } from "react-icons/md";
-import { FaPhoneAlt, FaGithub } from "react-icons/fa";
-import { IoLogoLinkedin } from "react-icons/io";
-import { FaLocationDot } from "react-icons/fa6";
+import React from "react";
 
 export default function Resume() {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-200 p-6">
-      {/* A4 Paper Container */}
-      <div className="bg-white text-black w-[794px] h-[1123px] shadow-xl p-10 font-serif leading-relaxed text-[15px]">
-        {/* ===== Header ===== */}
-        <header className="border-b-2 border-gray-800 pb-2 mb-4">
-          <h1 className="text-4xl font-bold">Raj Kumar Verma</h1>
+    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 p-8 font-sans">
+      <style>
+        {`
+          @media print {
+            @page { margin: 0; }
+            body { margin: 0; }
+            .print-hidden { display: none !important; }
+          }
+        `}
+      </style>
 
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[14px] mt-2 text-gray-800">
-            <div className="flex items-center gap-1">
-              <MdOutlineEmail className="text-gray-700" />
-              <span>rajkumargrd56@gmail.com</span>
+      <button
+        onClick={() => window.print()}
+        className="mb-6 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors print-hidden"
+      >
+        Download PDF
+      </button>
+
+      {/* A4 Paper Container */}
+      <div className="bg-white text-gray-800 w-[210mm] min-h-[297mm] shadow-2xl p-6 text-[14px] leading-normal relative print:shadow-none print:w-full print:h-auto print:p-0">
+
+        {/* Header */}
+        <header className="flex justify-between items-start mb-4 border-b-2 border-gray-300 pb-2">
+          <div>
+            <h1 className="text-4xl font-bold text-blue-800 mb-1">Raj Kumar Verma</h1>
+            <div className="text-gray-700 font-medium">
+              <p>LinkedIn: <a href="https://linkedin.com/in/rajverma04" className="text-blue-600 hover:underline">rajverma04</a></p>
+              <p>GitHub: <a href="https://github.com/rajverma04" className="text-blue-600 hover:underline">rajverma04</a></p>
             </div>
-            <div className="flex items-center gap-1">
-              <FaPhoneAlt className="text-gray-700" />
-              <span>+91 87894 29404</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <IoLogoLinkedin className="text-gray-700" />
-              <span>rajverma04</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <FaGithub className="text-gray-700" />
-              <span>rajverma04</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <FaLocationDot className="text-gray-700" />
-              <span>Giridih, Jharkhand</span>
-            </div>
+          </div>
+          <div className="text-right text-gray-700 font-medium">
+            <p>Email: <a href="mailto:rajkumargrd56@gmail.com" className="text-blue-600 hover:underline">rajkumargrd56@gmail.com</a></p>
+            <p>Mobile: +91-8789429404</p>
           </div>
         </header>
 
-        {/* ===== Objective ===== */}
+        {/* Skills */}
         <section className="mb-4">
-          <h2 className="font-bold text-[17px] mb-1 underline">OBJECTIVE</h2>
-          <p>
-            Aspiring full-stack web developer with a strong foundation in computer science
-            and hands-on experience in both frontend and backend development. Always passionate
-            about learning new technologies and applying them to build scalable, user-focused
-            web applications. Driven to innovate and contribute to impactful tech solutions.
-          </p>
+          <h2 className="text-blue-800 font-bold text-lg uppercase border-b border-gray-300 mb-2 tracking-wide">Skills</h2>
+          <ul className="space-y-1">
+            <li><span className="font-bold text-blue-900">Languages:</span> C++, JavaScript, Java, Python</li>
+            <li><span className="font-bold text-blue-900">Frameworks:</span> React.js, Node.js, Express.js, Next.js, Tailwind CSS</li>
+            <li><span className="font-bold text-blue-900">Databases:</span> MongoDB, MySQL</li>
+            <li><span className="font-bold text-blue-900">Tools & Platform:</span> Git, GitHub, Docker, VS Code, Postman</li>
+            <li><span className="font-bold text-blue-900">Soft Skills:</span> Problem-Solving, Quick Learner</li>
+          </ul>
         </section>
 
-        {/* ===== Education ===== */}
+        {/* Projects */}
         <section className="mb-4">
-          <h2 className="font-bold text-[17px] mb-2 underline">EDUCATION</h2>
-          <div className="flex justify-between">
-            <div>
-              <p className="font-semibold">
-                Computer Science Engineering – Bachelor of Technology
-              </p>
-              <p className="italic">
-                Lovely Professional University – Phagwara, Punjab
-              </p>
-            </div>
-            <p>Aug 23 – Present</p>
-          </div>
-          <p>CGPA: <strong>7.64</strong></p>
+          <h2 className="text-blue-800 font-bold text-lg uppercase border-b border-gray-300 mb-2 tracking-wide">Projects</h2>
 
-          <div className="flex justify-between mt-2">
-            <div>
-              <p className="font-semibold">Higher Secondary Certificate</p>
-              <p className="italic">B N Saha DAV Pub School – Giridih, Jharkhand</p>
+          <div className="mb-4">
+            <div className="flex justify-between items-baseline mb-1">
+              <h3 className="font-bold text-blue-900 text-sm">
+                CodeNexus - Online Coding Practice & Evaluation <span className="text-black font-normal">| React.js, Node.js, Redis, MongoDB |</span> <a href="#" className="text-blue-600 hover:underline">Github</a>
+              </h3>
+              <span className="text-gray-600 font-medium text-sm">Nov '25</span>
             </div>
-            <p>Apr 20 – Feb 22</p>
+            <ul className="list-disc list-outside ml-5 space-y-1 text-gray-700">
+              <li>Developed a full-stack coding platform enabling real-time code execution and evaluation across multiple languages through the <span className="font-bold text-black">Judge0</span> API.</li>
+              <li>Integrated the <span className="font-bold text-black">Monaco Code Editor</span> to provides a VS Code-like environment with syntax highlighting, autocompletion and real-time code editing.</li>
+              <li>Built an <span className="font-bold text-black">AI Debugging</span> agent that interprets compiler/runtime errors and provides guided fixes for faster debugging.</li>
+            </ul>
           </div>
-          <p>Percentage: <strong>83%</strong></p>
 
-          <div className="flex justify-between mt-2">
-            <div>
-              <p className="font-semibold">Secondary School Certificate</p>
-              <p className="italic">B N Saha DAV Pub School – Giridih, Jharkhand</p>
+          <div>
+            <div className="flex justify-between items-baseline mb-1">
+              <h3 className="font-bold text-blue-900 text-[15px]">
+                GST Invoice Generator <span className="text-black font-normal">| React.js, Node.js, Bootstrap, MongoDB |</span> <a href="#" className="text-blue-600 hover:underline">Github</a>
+              </h3>
+              <span className="text-gray-600 font-medium text-sm">Aug '25</span>
             </div>
-            <p>Apr 19 – Feb 20</p>
+            <ul className="list-disc list-outside ml-5 space-y-1 text-gray-700">
+              <li>Built a responsive GST billing application that enables users to generate GST-compliant invoices with automated CGST, SGST and IGST calculation.</li>
+              <li>Implemented real-time invoice creation with dynamic item management, auto-calculated totals and download PDF invoices.</li>
+              <li>Integrated MongoDB to store shop details, transport ID with optimized schema design for fast retrieval.</li>
+            </ul>
           </div>
-          <p>Percentage: <strong>82%</strong></p>
         </section>
 
-        {/* ===== Skills ===== */}
+        {/* Achievements */}
         <section className="mb-4">
-          <h2 className="font-bold text-[17px] mb-2 underline">SKILLS</h2>
-          <ul className="list-disc list-inside space-y-1">
-            <li>
-              <strong>Languages:</strong> C++, JavaScript, Python, Java
+          <h2 className="text-blue-800 font-bold text-lg uppercase border-b border-gray-300 mb-2 tracking-wide">Achievements</h2>
+          <ul className="space-y-1">
+            <li className="flex justify-between">
+              <span><span className="text-black">•</span> Solved 220+ DSA problems on LeetCode/GFG.</span>
+              <span className="text-gray-600 font-medium text-sm">Oct '25</span>
             </li>
-            <li>
-              <strong>Frameworks & Libraries:</strong> React.js, Node.js, Tailwind CSS, Bootstrap
-            </li>
-            <li>
-              <strong>Database:</strong> MongoDB, MySQL
-            </li>
-            <li>
-              <strong>Platform & Other:</strong> Git & GitHub, VS Code
-            </li>
-            <li>
-              <strong>Soft Skills:</strong> Quick Learner, Problem Solving, Team Management, Project Management
+            <li className="flex justify-between">
+              <span><span className="text-black">•</span> Secured AIR-7 in Coding Ninja Premier League coding completion.</span>
+              <span className="text-gray-600 font-medium text-sm">May 24</span>
             </li>
           </ul>
         </section>
 
-        {/* ===== Certifications ===== */}
+        {/* Certificates */}
         <section className="mb-4">
-          <h2 className="font-bold text-[17px] mb-2 underline">CERTIFICATION</h2>
-          <ul className="list-disc list-inside space-y-1">
-            <li>
-              NPTEL Certification in Cloud Computing – Elite Category, issued by IIT Kharagpur <span className="float-right">Apr 2025</span>
+          <h2 className="text-blue-800 font-bold text-lg uppercase border-b border-gray-300 mb-2 tracking-wide">Certificates</h2>
+          <ul className="space-y-1">
+            <li className="flex justify-between">
+              <span><span className="text-black">•</span> Privacy and Security in Online Social Media - <a href="#" className="text-blue-600 hover:underline">NPTEL</a></span>
+              <span className="text-gray-600 font-medium text-sm">Oct '25</span>
             </li>
-            <li>
-              Charitable Trust – Yuva Sanskriti Charitable Trust <span className="float-right">June – July 2024</span>
+            <li className="flex justify-between">
+              <span><span className="text-black">•</span> Data Structures and Algorithms Certification - <a href="#" className="text-blue-600 hover:underline">LPU</a></span>
+              <span className="text-gray-600 font-medium text-sm">Jul '25</span>
             </li>
-            <li>
-              C++ Programming Certificate – NeoColab <span className="float-right">Dec 2024</span>
+            <li className="flex justify-between">
+              <span><span className="text-black">•</span> Cloud Computing - <a href="#" className="text-blue-600 hover:underline">NPTEL</a></span>
+              <span className="text-gray-600 font-medium text-sm">Apr '25</span>
+            </li>
+            <li className="flex justify-between">
+              <span><span className="text-black">•</span> Coding Ninja Preimier League - <a href="#" className="text-blue-600 hover:underline">Coding Ninja</a></span>
+              <span className="text-gray-600 font-medium text-sm">May 24</span>
             </li>
           </ul>
         </section>
 
-        {/* ===== Projects & Events ===== */}
+        {/* Education */}
         <section>
-          <h2 className="font-bold text-[17px] mb-2 underline">PROJECTS & EVENTS</h2>
-          <ul className="list-disc list-inside space-y-2">
-            <li>
-              <strong>Swiggy Clone –</strong> Developed web application using Swiggy live API 
-              <span className="float-right">Oct 2025</span>
-            </li>
-            <li>
-              <strong>GST-INVOICE GENERATOR –</strong> Developed web app using React.js & MongoDB, 
-              deployed at{" "}
-              <a
-                href="https://gstinvoice.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 underline"
-              >
-                gstinvoice.vercel.app
-              </a>
-              <span className="float-right">Aug 2025</span>
-            </li>
-            <li>
-              <strong>AI CHATBOT –</strong> Personalized Learning Platform
-              <span className="float-right">Apr 2025</span>
-            </li>
-            <li>
-              <strong>File Distributed System –</strong> Developed a web-based DFS using Flask & C++
-              <span className="float-right">Apr 2025</span>
-            </li>
-          </ul>
+          <h2 className="text-blue-800 font-bold text-lg uppercase border-b border-gray-300 mb-2 tracking-wide">Education</h2>
+
+          <div className="mb-3">
+            <div className="flex justify-between font-bold text-blue-900">
+              <h3>Lovely Professional University</h3>
+              <span className="text-gray-600 font-medium text-sm text-black">Punjab, India</span>
+            </div>
+            <div className="flex justify-between">
+              <p className="text-gray-800">Bachelor of Technology - Computer Science and Engineering: <span className="font-bold">CGPA: 7.64</span></p>
+              <span className="text-gray-600 font-medium text-sm">Aug '23 - Present</span>
+            </div>
+          </div>
+
+          <div className="mb-3">
+            <div className="flex justify-between font-bold text-blue-900">
+              <h3>B.N Saha DAV Public School</h3>
+              <span className="text-gray-600 font-medium text-sm text-black">Giridih, Jharkhand</span>
+            </div>
+            <div className="flex justify-between">
+              <p className="text-gray-800">Intermediate: <span className="font-bold">Percentage: 83%</span></p>
+              <span className="text-gray-600 font-medium text-sm">Apr '20 - Mar ' 22</span>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex justify-between font-bold text-blue-900">
+              <h3>B.N Saha DAV Public School</h3>
+              <span className="text-gray-600 font-medium text-sm text-black">Giridih, Jharkhand</span>
+            </div>
+            <div className="flex justify-between">
+              <p className="text-gray-800">Matriculation: <span className="font-bold">Percentage: 82%</span></p>
+              <span className="text-gray-600 font-medium text-sm">Apr '19 - Mar ' 20</span>
+            </div>
+          </div>
+
         </section>
+
       </div>
     </div>
   );
 }
+

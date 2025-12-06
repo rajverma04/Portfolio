@@ -22,9 +22,15 @@
   opacity: 0.4;
   animation: twinkle 3s infinite alternate;
 }
+
 @keyframes twinkle {
-  from{ opacity: 0.2; }
-  to{ opacity: 0.6; }
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 0.6;
+  }
 }
 
 /* SHOOTING STARS */
@@ -40,9 +46,17 @@
   animation: shooting 3s infinite ease-in-out;
   opacity: 0.7;
 }
+
 @keyframes shooting {
-  0% { transform: translateX(0) translateY(0) rotate(45deg); opacity: 1; }
-  100% { transform: translateX(-500px) translateY(500px) rotate(45deg); opacity: 0; }
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-500px) translateY(500px) rotate(45deg);
+    opacity: 0;
+  }
 }
 
 /* NEBULA GALAXY CLOUD */
@@ -52,50 +66,110 @@
   left: 10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(64,0,143,0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(64, 0, 143, 0.4), transparent 70%);
   filter: blur(80px);
   animation: float 12s infinite alternate ease-in-out;
 }
+
 @keyframes float {
-  from { transform: translateY(0);}
-  to { transform: translateY(-40px);}
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-40px);
+  }
 }
 
-/* AURORA WAVE */
-.space-bg .aurora {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 40vh;
-  background: linear-gradient(120deg, rgba(0,255,200,0.2), rgba(0,100,255,0.2));
-  filter: blur(120px);
-  animation: wave 8s infinite alternate ease-in-out;
+/* =========================================
+   NAVBAR: FLOATING DOCK
+   ========================================= */
+nav {
+  background: rgba(10, 10, 10, 0.6) !important;
+  /* More visible (darker) */
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  /* Stronger border */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  margin: 30px auto !important;
+  /* More spacing */
+  width: auto !important;
+  min-width: 400px;
+  /* Wider */
+  max-width: 800px !important;
+  border-radius: 100px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: 0 !important;
+  padding: 0 40px !important;
+  /* Larger padding */
+  z-index: 100 !important;
 }
-@keyframes wave {
-  from { transform: translateX(-10%); }
-  to { transform: translateX(10%); }
+
+nav ul {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 70px;
+  /* Taller */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul li {
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  /* Larger font */
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  /* Larger click area */
+  border-radius: 30px;
+}
+
+nav ul li:hover {
+  color: var(--text-primary) !important;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 /* Fade In */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
+
 .animate-fadeIn {
   animation: fadeIn 1s ease-in-out;
 }
 
 /* Fade In Up */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .animate-fadeInUp {
   animation: fadeInUp 1s ease-in-out;
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 .animate-blink {
@@ -103,18 +177,31 @@
 }
 
 /* Force pointer events on all project buttons */
+/* Force pointer events on all project buttons */
 #projects * {
   pointer-events: auto !important;
 }
 
+/* Force pointer events on contact form */
+#contact * {
+  pointer-events: auto !important;
+}
+
 @keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient 3s ease infinite;
 }
-

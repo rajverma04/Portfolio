@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
+import { FaPaperPlane } from "react-icons/fa";
 
 export default function Contact() {
   const formRef = useRef();
@@ -8,10 +10,8 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  // email pattern helper
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // validate given value and set error state
   const validateEmailValue = (value) => {
     if (!value) {
       setEmailError("Email is required");
@@ -25,14 +25,12 @@ export default function Contact() {
     return true;
   };
 
-  // onChange handler for the email input (live validation)
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
-    validateEmailValue(value); // live validation while typing
+    validateEmailValue(value);
   };
 
-  // also validate on blur (optional but good UX)
   const handleEmailBlur = () => {
     validateEmailValue(email);
   };
@@ -40,7 +38,6 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // final validation before sending
     if (!validateEmailValue(email)) {
       setStatusMessage("❌ Please fix the form errors before sending.");
       return;
@@ -48,66 +45,77 @@ export default function Contact() {
 
     setIsSending(true);
     setStatusMessage("");
-    console.log("ENV CHECK:", {
-  SERVICE: process.env.REACT_APP_SERVICE_ID,
-  TEMPLATE: process.env.REACT_APP_TEMPLATE_ID,
-  PUBLIC:  process.env.REACT_APP_PUBLIC_KEY
-});
+
+    // SECURE: Using environment variables instead of hardcoded strings
     emailjs
       .sendForm(
-        "service_6ciiktb",
-        "template_4tepwer",
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
         formRef.current,
-        "nqOiy9DqaJ3SrWb90"
+        process.env.REACT_APP_PUBLIC_KEY
       )
       .then(
         (result) => {
           setStatusMessage("✅ Message sent successfully!");
           setIsSending(false);
           formRef.current.reset();
-          setEmail(""); // reset controlled state
+          setEmail("");
           setEmailError("");
         },
         (error) => {
           console.error("EmailJS error:", error);
-          setStatusMessage("❌ Failed to send. Check EmailJS logs.");
+          setStatusMessage("❌ Failed to send. Please try again later.");
           setIsSending(false);
         }
       );
   };
 
   const isFormValid = () => {
-    // add other checks if you want (e.g. required subject/message)
     return email && !emailError;
   };
 
   return (
     <section
       id="contact"
-      className="py-20 bg-black text-white min-h-screen flex items-center justify-center relative"
+      className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      <div className="max-w-3xl w-full px-6">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-center text-[#a855f7]">
-          📬 Contact Me
-        </h2>
+      <div className="max-w-3xl w-full px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent inline-block">
+            📬 Contact Me
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            Have a question or want to work together? Drop me a message!
+          </p>
+        </motion.div>
 
-        <form
+        <motion.form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="relative z-50 pointer-events-auto bg-[#0f172a] p-8 rounded-2xl space-y-6"
-          style={{ touchAction: "manipulation" }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="relative z-50 pointer-events-auto bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-3xl space-y-6 shadow-2xl"
         >
           <div>
-            <label className="block text-sm text-gray-300 mb-2">Your Name</label>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
             <input
               name="from_name"
               required
-              className="w-full px-4 py-3 rounded bg-[#1e293b] text-white"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all"
+              placeholder="John Doe"
             />
           </div>
 
           <div>
-            <label className="block text-sm text-gray-300 mb-2">Your Email</label>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
             <input
               name="from_email"
               type="email"
@@ -115,51 +123,68 @@ export default function Contact() {
               value={email}
               onChange={handleEmailChange}
               onBlur={handleEmailBlur}
-              aria-invalid={!!emailError}
-              aria-describedby="email-error"
-              className={`w-full px-4 py-3 rounded bg-[#1e293b] text-white ${
-                emailError ? "outline outline-1 outline-red-500" : ""
-              }`}
+              className={`w-full px-4 py-3 rounded-xl bg-white/5 border text-white outline-none transition-all ${emailError
+                ? "border-red-500/50 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                : "border-white/10 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                }`}
+              placeholder="john@example.com"
             />
             {emailError && (
-              <p id="email-error" className="mt-2 text-xs text-red-400">
+              <p className="mt-2 text-xs text-red-400">
                 {emailError}
               </p>
             )}
           </div>
 
           <div>
-            <label className="block text-sm text-gray-300 mb-2">Subject</label>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
             <input
               name="subject"
               required
-              className="w-full px-4 py-3 rounded bg-[#1e293b] text-white"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all"
+              placeholder="Project Inquiry"
             />
           </div>
 
           <div>
-            <label className="block text-sm text-gray-300 mb-2">Message</label>
+            <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
             <textarea
               name="message"
               rows="5"
               required
-              className="w-full px-4 py-3 rounded bg-[#1e293b] text-white"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all resize-none"
+              placeholder="Tell me about your project..."
             />
           </div>
 
-          <div className="text-center">
+          <div className="text-center pt-4">
             <button
               type="submit"
               disabled={isSending || !isFormValid()}
-              className={`px-8 py-3 rounded ${
-                isSending || !isFormValid() ? "bg-gray-600" : "bg-[#a855f7]"
-              }`}
+              className={`w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white flex items-center justify-center gap-2 transition-all duration-300 ${isSending || !isFormValid()
+                ? "bg-white/5 text-gray-500 cursor-not-allowed"
+                : "bg-gradient-to-r from-indigo-600 to-purple-600 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02]"
+                }`}
             >
-              {isSending ? "Sending..." : "Send Message"}
+              {isSending ? (
+                "Sending..."
+              ) : (
+                <>
+                  <FaPaperPlane className="text-sm" /> Send Message
+                </>
+              )}
             </button>
-            {statusMessage && <p className="mt-3 text-sm">{statusMessage}</p>}
+            {statusMessage && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`mt-4 text-sm font-medium ${statusMessage.includes("✅") ? "text-green-400" : "text-red-400"}`}
+              >
+                {statusMessage}
+              </motion.p>
+            )}
           </div>
-        </form>
+        </motion.form>
       </div>
     </section>
   );

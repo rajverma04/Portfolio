@@ -1,8 +1,10 @@
-import Body from "./body";
 import { Link } from "react-router-dom";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import RotatingText from "../RotatingText/RotatingText";
+import { faFileAlt, faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import Body from "./body";
+import RotatingText from "../RotatingText/RotatingText";
 
 export default function About() {
   const handleGitHubClick = () => {
@@ -11,81 +13,112 @@ export default function About() {
   const handleLinkedinClick = () => {
     window.open("https://www.linkedin.com/in/rajverma04/", "_blank");
   };
+
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center text-white px-6 py-10 gap-28 md:gap-20"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-24"
     >
-      {/* 🧑 Profile Section */}
-      <div className="flex justify-center items-center">
-        <Body />
-      </div>
+      {/* Background Elements */}
+      <div className="absolute top-20 left-[-10%] w-96 h-96 bg-indigo-500/20 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-20 right-[-10%] w-96 h-96 bg-purple-500/20 blur-[120px] rounded-full pointer-events-none" />
 
-      {/* 🧠 Text Section */}
-      <div className="text-center md:text-left font-audiowide space-y-5 max-w-xl flex flex-col items-center md:items-start">
-        {/* Header */}
-        <h1 className="text-3xl sm:text-4xl font-bold">Hey, I'm Raj</h1>
+      {/* Main Glass Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="bg-white/5 backdrop-blur-2xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center relative z-10 shadow-2xl"
+      >
+        {/* Left: Text Content */}
+        <div className="space-y-8 order-2 md:order-1">
+          {/* Status Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Available for Work
+          </div>
 
-        {/* Rotating Text */}
-        <div className="flex flex-wrap justify-center md:justify-start items-center gap-3 text-2xl sm:text-3xl font-bold">
-          <span className="text-gray-200">Passionate</span>
-          <RotatingText
-            texts={["developer", "designer", "creator", "learner"]}
-            mainClassName="inline-flex items-center px-3 sm:px-4 bg-[#635bff] text-white py-1 sm:py-1.5 rounded-lg"
-            staggerFrom="last"
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-120%" }}
-            staggerDuration={0.025}
-            splitLevelClassName="overflow-hidden"
-            transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            rotationInterval={2000}
-          />
+          {/* Heading */}
+          <div>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4 text-white">
+              Raj <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Verma</span>
+            </h1>
+            <div className="flex items-center gap-3 text-xl sm:text-2xl text-gray-300 font-medium">
+              <span>I am a</span>
+              <RotatingText
+                texts={["Full Stack Developer", "UI/UX Enthusiast", "Problem Solver"]}
+                mainClassName="text-indigo-400 font-semibold"
+                staggerFrom="last"
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "-120%" }}
+                staggerDuration={0.025}
+                splitLevelClassName="overflow-hidden"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                rotationInterval={2000}
+              />
+            </div>
+          </div>
+
+          {/* Description */}
+          <p className="text-lg text-gray-400 leading-relaxed max-w-lg">
+            Passionate about building scalable web applications and crafting intuitive user experiences.
+            I bridge the gap between complex engineering and elegant design.
+          </p>
+
+          {/* Stats Row */}
+          <div className="flex gap-8 border-t border-white/10 pt-8">
+            <div>
+              <h4 className="text-3xl font-bold text-white">20+</h4>
+              <p className="text-sm text-gray-500">Projects Completed</p>
+            </div>
+            <div>
+              <h4 className="text-3xl font-bold text-white">200+</h4>
+              <p className="text-sm text-gray-500">DSA Problems</p>
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-4 pt-2">
+            <Link
+              to="/resume"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-2xl bg-white text-black font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-2"
+            >
+              <FontAwesomeIcon icon={faFileAlt} />
+              <span>Resume</span>
+            </Link>
+
+            <div className="flex gap-3">
+              <button
+                onClick={handleGitHubClick}
+                className="p-4 rounded-2xl bg-white/5 border border-white/10 text-white transition-all hover:bg-white/10 hover:scale-105 hover:border-white/20 cursor-pointer"
+                aria-label="GitHub"
+              >
+                <FontAwesomeIcon icon={faGithub} className="text-xl" />
+              </button>
+              <button
+                onClick={handleLinkedinClick}
+                className="p-4 rounded-2xl bg-[#0077b5]/10 border border-[#0077b5]/20 text-[#0077b5] transition-all hover:bg-[#0077b5]/20 hover:scale-105 hover:border-[#0077b5]/40 cursor-pointer"
+                aria-label="LinkedIn"
+              >
+                <FontAwesomeIcon icon={faLinkedin} className="text-xl" />
+              </button>
+            </div>
+          </div>
         </div>
 
-      
-<h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-size-200 animate-gradient">
-  Full Stack Web Developer
-</h1>
-
-        {/* Description */}
-        <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-md">
-          Crafting modern, responsive, and user-friendly websites with passion
-          and precision.
-        </p>
-
-        {/* ✅ Centered Button — Opens Resume in New Tab */}
-        <div className="pt-2 flex gap-3">
-          <Link
-            to="/resume"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#635bff] hover:bg-[#5146e0] text-white font-semibold px-6 py-2 rounded-lg transition duration-300 shadow-lg hover:shadow-[#635bff]/50"
-          >
-            View Resume
-          </Link>
-
-          {/* GitHub */}
-          <li
-            className="inline-block bg-[#635bff] hover:bg-[#5146e0] text-white font-semibold px-6 py-2 rounded-lg transition duration-300 shadow-lg hover:shadow-[#635bff]/50 cursor-pointer"
-            onClick={handleGitHubClick}
-          >
-            <FontAwesomeIcon icon={faGithub} className="w-6 h-6" />
-            <span className="hidden sm:inline">GitHub</span>
-          </li>
-
-          {/* LinkedIn */}
-          <li
-            className="inline-block bg-[#635bff] hover:bg-[#5146e0] text-white font-semibold px-6 py-2 rounded-lg transition duration-300 shadow-lg hover:shadow-[#635bff]/50 cursor-pointer"
-            onClick={handleLinkedinClick}
-          >
-            <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6" />
-            <span className="hidden sm:inline">LinkedIn</span>
-          </li>
-
+        {/* Right: Profile Image (Integrated Body Component) */}
+        <div className="order-1 md:order-2 flex justify-center md:justify-end">
+          <Body />
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 }
+

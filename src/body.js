@@ -1,20 +1,45 @@
+import { motion } from "framer-motion";
+
 const profileImage = new URL("./image/dsc_0499.jpg", import.meta.url).href;
-// import TechStack from "./techStack";
 
 export default function Body() {
-    return (
-        <div>
-            <div className="w-40 h-40 rounded-full border border-purple-500 
-                shadow-[0_0_20px_#a855f7] 
-                hover:shadow-[0_0_40px_#a855f7] 
-                transition-all duration-200 p-1 ml-20">
-                <img
-                    src={profileImage}
-                    alt="Profile"
-                    className="w-full h-full rounded-full object-fit"
-                />
-            </div>
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="relative group"
+    >
+      {/* Floating Animation Wrapper */}
+      <motion.div
+        animate={{ y: [-10, 10, -10] }}
+        transition={{
+          repeat: Infinity,
+          duration: 6,
+          ease: "easeInOut",
+        }}
+        className="relative z-10"
+      >
+        {/* Round Container */}
+        <div className="w-72 h-72 sm:w-96 sm:h-96 relative">
+          {/* The Glow/Border Effect */}
+          <div className="absolute -inset-1 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
 
+          {/* The Image Container */}
+          <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/10 relative z-10 bg-white">
+            <img
+              src={profileImage}
+              alt="Profile"
+              className="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-105"
+            />
+            {/* Shine Effect */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+          </div>
         </div>
-    )
+      </motion.div>
+
+      {/* Background Glow Blob */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-indigo-500/20 blur-[100px] rounded-full -z-10" />
+    </motion.div>
+  );
 }

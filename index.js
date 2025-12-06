@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import "./src/index.css";
 import TechStack from "./src/techStack";
 import Navbar from "./src/navbar";
@@ -10,44 +11,66 @@ import Contact from "./src/contact";
 import Projects from "./src/projects";
 import Education from "./src/education";
 import CodingProfiles from "./src/codingProfiles";
+import Background3D from "./src/Background3D";
+import Loader from "./src/Loader";
 
 // Portfolio Main Component
 function Portfolio() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500); // Show loader for 2.5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen text-white relative overflow-hidden">
-      {/* Fixed Navigation Bar */}
-      <header className="fixed top-0 w-full z-50 pointer-events-auto">
-        <Navbar />
-      </header>
+    <>
+      <AnimatePresence mode="wait">
+        {loading && <Loader key="loader" />}
+      </AnimatePresence>
 
-      {/* Main Content with padding to account for fixed navbar */}
-      <main className="relative z-10 pointer-events-none pt-20">
-        
-        {/* About Section */}
-        <section id="about" className="pointer-events-auto flex justify-center items-center">
-          <About/>
-        </section>
+      {!loading && (
+        <div className="min-h-screen text-white relative overflow-hidden">
+          <Background3D />
 
-        {/* Skills Section */}
-        <section id="skills" className="py-20 pointer-events-auto min-h-screen flex items-center">
-          <div className="container mx-auto px-4 w-full">
-            <TechStack />
-          </div>
-        </section>
+          {/* Fixed Navigation Bar */}
+          <header className="fixed top-0 w-full z-50 pointer-events-auto">
+            <Navbar />
+          </header>
 
-        {/* Projects Section */}
-        <Projects/>
+          {/* Main Content with padding to account for fixed navbar */}
+          <main className="relative z-10 pointer-events-none pt-20">
 
-        {/* Conding Platform */}
-        <CodingProfiles/>
+            {/* About Section */}
+            <section id="about" className="pointer-events-auto flex justify-center items-center">
+              <About />
+            </section>
 
-       {/* Education Section */}
-       <Education/>
+            {/* Skills Section */}
+            <section id="skills" className="py-20 pointer-events-auto min-h-screen flex items-center">
+              <div className="container mx-auto px-4 w-full">
+                <TechStack />
+              </div>
+            </section>
 
-       {/* Contact Section */}
-       <Contact/>
-      </main>
-    </div>
+            {/* Projects Section */}
+            <Projects />
+
+            {/* Conding Platform */}
+            <CodingProfiles />
+
+            {/* Education Section */}
+            <Education />
+
+            {/* Contact Section */}
+            <Contact />
+          </main>
+        </div>
+      )}
+    </>
   );
 }
 
