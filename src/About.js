@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import Body from "./body";
 import RotatingText from "../RotatingText/RotatingText";
 
+const resumePdf = new URL("../public/RAJ_CV.pdf", import.meta.url).href;
+
 export default function About() {
   const handleGitHubClick = () => {
     window.open("https://github.com/rajverma04", "_blank");
@@ -73,26 +75,26 @@ export default function About() {
           {/* Stats Row */}
           <div className="flex gap-8 border-t border-white/10 pt-8">
             <div>
-              <h4 className="text-3xl font-bold text-white">20+</h4>
+              <h4 className="text-3xl font-bold text-white">8+</h4>
               <p className="text-sm text-gray-500">Projects Completed</p>
             </div>
             <div>
-              <h4 className="text-3xl font-bold text-white">200+</h4>
+              <h4 className="text-3xl font-bold text-white">220+</h4>
               <p className="text-sm text-gray-500">DSA Problems</p>
             </div>
           </div>
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4 pt-2">
-            <Link
-              to="/resume"
+            <a
+              href={resumePdf}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 rounded-2xl bg-white text-black font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-2"
             >
               <FontAwesomeIcon icon={faFileAlt} />
               <span>Resume</span>
-            </Link>
+            </a>
 
             <div className="flex gap-3">
               <button
