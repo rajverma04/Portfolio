@@ -44,6 +44,15 @@ export default function Navbar() {
           <span className="hidden sm:inline">Skills</span>
         </li>
 
+        {/* Projects */}
+        <li
+          className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
+          onClick={() => scrollToSection("projects")}
+        >
+          <FontAwesomeIcon icon={faLaptopCode} className="w-5 h-5" />
+          <span className="hidden sm:inline">Projects</span>
+        </li>
+
         {/* Contact */}
         <li
           className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
@@ -53,14 +62,7 @@ export default function Navbar() {
           <span className="hidden sm:inline">Contact</span>
         </li>
 
-        {/* Projects */}
-        <li
-          className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
-          onClick={() => scrollToSection("projects")}
-        >
-          <FontAwesomeIcon icon={faLaptopCode} className="w-5 h-5" />
-          <span className="hidden sm:inline">Projects</span>
-        </li>
+
       </ul>
     </motion.nav>
   );
