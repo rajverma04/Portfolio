@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faFileAlt, faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
@@ -14,6 +14,9 @@ export default function About() {
   };
   const handleLinkedinClick = () => {
     window.open("https://www.linkedin.com/in/rajverma04/", "_blank");
+  };
+  const handleInstagramClick = () => {
+    window.open("https://www.instagram.com/rajjo.4/", "_blank");
   };
 
   return (
@@ -106,11 +109,20 @@ export default function About() {
               </button>
               <button
                 onClick={handleLinkedinClick}
-                className="p-4 rounded-2xl bg-[#0077b5]/10 border border-[#0077b5]/20 text-[#0077b5] transition-all hover:bg-[#0077b5]/20 hover:scale-105 hover:border-[#0077b5]/40 cursor-pointer"
+                className="p-4 rounded-2xl text-white bg-gradient-to-tr from-[#0A66C2] to-[#0077B5] transition-all hover:scale-105 cursor-pointer shadow-md"
                 aria-label="LinkedIn"
               >
                 <FontAwesomeIcon icon={faLinkedin} className="text-xl" />
               </button>
+
+              <button
+                onClick={handleInstagramClick}
+                className="p-4 rounded-2xl text-white bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] transition-all hover:scale-105 cursor-pointer shadow-md"
+                aria-label="Instagram"
+              >
+                <FontAwesomeIcon icon={faInstagram} className="text-xl" />
+              </button>
+
             </div>
           </div>
         </div>
