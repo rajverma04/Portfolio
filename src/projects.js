@@ -71,7 +71,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 min-h-screen flex flex-col items-center relative overflow-hidden"
+      className="min-h-screen flex py-10 flex-col items-center relative overflow-hidden"
     >
       {/* Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
@@ -148,8 +148,8 @@ const Projects = () => {
                     onClick={() => isLive && openInNewTab(project.liveLink)}
                     disabled={!isLive}
                     className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${isLive
-                        ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] cursor-pointer"
-                        : "bg-white/5 text-gray-500 cursor-not-allowed border border-white/5"
+                      ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] cursor-pointer"
+                      : "bg-white/5 text-gray-500 cursor-not-allowed border border-white/5"
                       }`}
                   >
                     <FaExternalLinkAlt className="w-3 h-3" />
@@ -161,8 +161,8 @@ const Projects = () => {
                     onClick={() => hasGithub && openInNewTab(project.githubLink)}
                     disabled={!hasGithub}
                     className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${hasGithub
-                        ? "bg-white/10 text-white hover:bg-white/20 hover:scale-[1.02] cursor-pointer border border-white/10"
-                        : "bg-white/5 text-gray-500 cursor-not-allowed border border-white/5"
+                      ? "bg-white/10 text-white hover:bg-white/20 hover:scale-[1.02] cursor-pointer border border-white/10"
+                      : "bg-white/5 text-gray-500 cursor-not-allowed border border-white/5"
                       }`}
                   >
                     <FaGithub className="w-4 h-4" />

@@ -27,7 +27,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="min-h-screen flex flex-col items-center justify-center text-white px-6 py-20 relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center text-white px-6 py-10 relative overflow-hidden"
     >
       <div className="max-w-4xl w-full relative z-10">
         <motion.div
@@ -62,8 +62,8 @@ export default function Education() {
               >
                 {/* Timeline Dot */}
                 <div className={`absolute left-[-8px] md:left-1/2 md:-translate-x-1/2 top-0 w-4 h-4 rounded-full border-4 border-black z-10 ${edu.duration.includes("Present")
-                    ? "bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]"
-                    : "bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+                  ? "bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]"
+                  : "bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]"
                   }`}>
                   {edu.duration.includes("Present") && (
                     <span className="absolute -inset-1 rounded-full bg-green-500 opacity-75 animate-ping" />

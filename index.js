@@ -42,19 +42,13 @@ function Portfolio() {
           </header>
 
           {/* Main Content with padding to account for fixed navbar */}
-          <main className="relative z-10 pointer-events-none pt-20">
+          <main className="relative z-10 pt-10">
 
             {/* About Section */}
-            <section id="about" className="pointer-events-auto flex justify-center items-center">
-              <About />
-            </section>
+            <About />
 
             {/* Skills Section */}
-            <section id="skills" className="py-20 pointer-events-auto min-h-screen flex items-center">
-              <div className="container mx-auto px-4 w-full">
-                <TechStack />
-              </div>
-            </section>
+            <TechStack />
 
             {/* Projects Section */}
             <Projects />

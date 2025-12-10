@@ -77,7 +77,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="py-10 min-h-screen flex items-center flex-col relative overflow-hidden"
     >
       <div className="max-w-3xl w-full px-6 relative z-10">
         <motion.div
@@ -85,7 +85,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent inline-block">
             📬 Contact Me

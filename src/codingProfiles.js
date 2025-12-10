@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SiLeetcode, SiGeeksforgeeks, SiHackerrank } from "react-icons/si";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, } from "react-icons/fa";
 
 export default function CodingProfiles() {
     const codingProfiles = [
@@ -53,7 +53,7 @@ export default function CodingProfiles() {
     return (
         <section
             id="coding"
-            className="min-h-[60vh] flex flex-col items-center justify-center text-white px-6 py-20 relative overflow-hidden pointer-events-auto"
+            className="min-h-[60vh] flex flex-col items-center text-white px-6 py-10 relative overflow-hidden pointer-events-auto"
         >
             <div className="max-w-6xl w-full relative z-10">
                 <motion.div

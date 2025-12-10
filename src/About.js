@@ -22,7 +22,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-24"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-10"
     >
       {/* Background Elements */}
       <div className="absolute top-20 left-[-10%] w-96 h-96 bg-indigo-500/20 blur-[120px] rounded-full pointer-events-none" />
@@ -34,7 +34,7 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="bg-white/5 backdrop-blur-2xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center relative z-10 shadow-2xl"
+        className="pointer-events-auto bg-white/5 backdrop-blur-2xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center relative z-10 shadow-2xl"
       >
         {/* Left: Text Content */}
         <div className="space-y-8 order-2 md:order-1">
@@ -93,7 +93,7 @@ export default function About() {
               href={resumePdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-2xl bg-white text-black font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-2"
+              className="px-8 py-4 rounded-2xl bg-white text-black font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-2 cursor-pointer"
             >
               <FontAwesomeIcon icon={faFileAlt} />
               <span>Resume</span>

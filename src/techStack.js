@@ -20,7 +20,8 @@ import {
   SiRedux,
   SiTailwindcss,
   SiReactrouter,
-  SiTypescript
+  SiTypescript,
+  SiCplusplus
 } from "react-icons/si";
 
 import { VscVscodeInsiders } from "react-icons/vsc";
@@ -58,7 +59,7 @@ const categories = [
       { node: <FaJs className="text-5xl text-[#f4e11e]" />, title: "JavaScript" },
       { node: <FaPython className="text-5xl text-[#3776AB]" />, title: "Python" },
       { node: <FaJava className="text-5xl text-[#f89820]" />, title: "Java" },
-      { node: <FaDatabase className="text-5xl text-[#0c4a86]" />, title: "C" }, // Using Database icon as placeholder for C if FaCuttlefish not found/preferred
+      { node: <SiCplusplus className="text-5xl text-[#0c4a86]" />, title: "C++" }, // Using Database icon as placeholder for C if FaCuttlefish not found/preferred
     ],
   },
   {
@@ -111,14 +112,14 @@ const iconVariants = {
 
 const TechStack = () => {
   return (
-    <section id="skills" className="min-h-screen py-20 px-6 relative overflow-hidden">
+    <section id="skills" className="min-h-screen flex py-10 flex-col items-center relative overflow-hidden">
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent inline-block">
             My Tech Stack

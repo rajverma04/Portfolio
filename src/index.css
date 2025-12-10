@@ -84,45 +84,6 @@
 /* =========================================
    NAVBAR: FLOATING DOCK
    ========================================= */
-nav {
-  background: rgba(10, 10, 10, 0.6) !important;
-  /* More visible (darker) */
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  /* Stronger border */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-  border-radius: 100px !important;
-  z-index: 100 !important;
-  /* Visual styles retained, layout removed to be handled by Tailwind */
-}
-
-nav ul {
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 50px;
-  /* Taller */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-nav ul li {
-  color: var(--text-secondary) !important;
-  font-weight: 600 !important;
-  font-size: 1.1rem !important;
-  /* Larger font */
-  transition: all 0.3s ease;
-  padding: 10px 20px;
-  /* Larger click area */
-  border-radius: 30px;
-}
-
-nav ul li:hover {
-  color: var(--text-primary) !important;
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
 
 /* Fade In */
 @keyframes fadeIn {
