@@ -21,12 +21,12 @@ export default function Body() {
         className="relative z-10"
       >
         {/* Round Container */}
-        <div className="w-72 h-72 sm:w-96 sm:h-96 relative">
+        <div className="w-[250px] h-[250px] relative">
           {/* The Glow/Border Effect */}
           <div className="absolute -inset-1 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
 
           {/* The Image Container */}
-          <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/10 relative z-10 bg-white">
+          <div className="w-[250px] h-[250px] rounded-full overflow-hidden border-2 border-white/10 relative z-10 bg-white">
             <img
               src={profileImage}
               alt="Profile"
