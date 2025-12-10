@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("about");
+  const [isMobile, setIsMobile] = useState(false);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -22,6 +23,17 @@ export default function Navbar() {
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 450);
+    };
+
+    checkMobile(); // check once on load
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -55,7 +67,12 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <div
+      className={`
+    fixed z-50 left-1/2 -translate-x-1/2
+    ${isMobile ? "bottom-4 w-[90%]" : "top-6"}
+  `}
+    >
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -74,10 +91,17 @@ export default function Navbar() {
             `}
           >
             <FontAwesomeIcon icon={item.icon} className="w-4 h-4" />
-            <span className="hidden md:inline">{item.label}</span>
+            <span className={`${isMobile ? "hidden" : "hidden md:inline"}`}>
+              {item.label}
+            </span>
+
           </button>
         ))}
       </motion.nav>
     </div>
   );
 }
+
+
+
+
