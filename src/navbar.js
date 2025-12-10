@@ -4,6 +4,7 @@ import {
   faEnvelope,
   faStar,
   faLaptopCode,
+  faCode
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
@@ -23,9 +24,9 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0, x: "-50%" }}
       animate={{ y: 0, opacity: 1, x: "-50%" }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-      className="fixed top-0 left-1/2 w-full z-50 py-3 sm:py-4"
+      className="fixed top-0 left-1/2 w-fit z-50 py-2 mt-8"
     >
-      <ul className="flex justify-center gap-8 sm:gap-16 md:gap-20 text-base sm:text-lg">
+      <ul className="w-full max-w-[900px] mx-auto flex justify-center items-center text-base sm:text-lg px-6">
         {/* About */}
         <li
           className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
@@ -53,6 +54,15 @@ export default function Navbar() {
           <span className="hidden sm:inline">Projects</span>
         </li>
 
+        {/* Coding */}
+        <li
+          className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
+          onClick={() => scrollToSection("coding")}
+        >
+          <FontAwesomeIcon icon={faCode} className="w-5 h-5" />
+          <span className="hidden sm:inline">Coding</span>
+        </li>
+
         {/* Contact */}
         <li
           className="hover:text-indigo-400 flex flex-col sm:flex-row items-center gap-1 sm:gap-2 cursor-pointer transition duration-300"
@@ -61,9 +71,8 @@ export default function Navbar() {
           <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5" />
           <span className="hidden sm:inline">Contact</span>
         </li>
-
-
       </ul>
     </motion.nav>
   );
+
 }

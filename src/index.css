@@ -92,25 +92,15 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   /* Stronger border */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-  margin: 30px auto !important;
-  /* More spacing */
-  width: auto !important;
-  min-width: 400px;
-  /* Wider */
-  max-width: 800px !important;
   border-radius: 100px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  top: 0 !important;
-  padding: 0 40px !important;
-  /* Larger padding */
   z-index: 100 !important;
+  /* Visual styles retained, layout removed to be handled by Tailwind */
 }
 
 nav ul {
   padding: 0 !important;
   margin: 0 !important;
-  height: 70px;
+  height: 50px;
   /* Taller */
   display: flex;
   align-items: center;
