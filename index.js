@@ -19,12 +19,22 @@ function Portfolio() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Loader timeout
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500); // Show loader for 2.5 seconds
+    }, 2500);
 
-    return () => clearTimeout(timer);
+    // Disable right-click
+    const disableContextMenu = (e) => e.preventDefault();
+    document.addEventListener("contextmenu", disableContextMenu);
+
+    // Cleanup
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("contextmenu", disableContextMenu);
+    };
   }, []);
+
 
   return (
     <>
