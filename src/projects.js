@@ -4,6 +4,15 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 const Projects = () => {
   const projects = [
     {
+      title: "Code Nexus",
+      description:
+        "Built a full-stack coding platform featuring a VS Code–like editor using Monaco and real-time code execution through Judge0. The backend is powered by Node.js and MongoDB to manage users, submissions, and problem data. Supports multiple programming languages with a responsive and smooth user experience.",
+      tech: ["React.js", "Node.js", "MongoDB", "Monaco Editor", "Judge0 API", "Tailwind CSS"],
+      liveLink: "#",
+      githubLink: "https://github.com/rajverma04/CodeNexus",
+      date: "Nov - Dec 2025",
+    },
+    {
       title: "Swiggy Clone",
       description:
         "Developed a web application that fetches real-time restaurant and menu data using the Swiggy Live API. Built with React.js and styled for responsive performance.",
@@ -19,7 +28,7 @@ const Projects = () => {
       tech: ["React.js", "MongoDB", "Express.js", "Node.js"],
       liveLink: "https://gstinvoice.vercel.app",
       githubLink: "https://github.com/rajverma04/gstinvoice",
-      date: "Aug 2025",
+      date: "Jul - Aug 2025",
     },
     {
       title: "AI CHATBOT",
