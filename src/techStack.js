@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   FaHtml5,
-  FaCss3,
   FaJs,
   FaReact,
   FaNodeJs,
@@ -10,7 +9,7 @@ import {
   FaJava,
   FaGithub,
   FaGitAlt,
-  FaDatabase,
+  FaDocker
 } from "react-icons/fa";
 
 import {
@@ -79,6 +78,7 @@ const categories = [
     tech: [
       { node: <FaGitAlt className="text-5xl text-[#f05032]" />, title: "Git" },
       { node: <FaGithub className="text-5xl text-white" />, title: "GitHub" },
+      { node: <FaDocker className="text-5xl text-[#2496ED]" />, title: "Docker" },
       { node: <VscVscodeInsiders className="text-5xl text-[#3e9dd7]" />, title: "VS Code" },
       { node: <SiPostman className="text-5xl text-[#f75403]" />, title: "Postman" },
       { node: <PiFigmaLogoFill className="text-5xl text-[#8a1bfc]" />, title: "Figma" },
@@ -122,7 +122,7 @@ const TechStack = () => {
           className="text-center mb-10"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent inline-block">
-            My Tech Stack
+            Technical Skills
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
             The tools and technologies I use to bring ideas to life.
