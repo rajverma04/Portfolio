@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import Body from "./body";
 import RotatingText from "../RotatingText/RotatingText";
+import { SiGmail } from "react-icons/si";
+import { MdAlternateEmail } from "react-icons/md";
 
 const resumePdf = new URL("../public/RAJ_CV.pdf", import.meta.url).href;
 
@@ -114,6 +116,16 @@ export default function About() {
               >
                 <FontAwesomeIcon icon={faLinkedin} className="text-xl" />
               </button>
+
+              <button
+                onClick={() => window.location.href = "mailto:rajkumargrd56@gmail.com"}
+                className="p-4 rounded-2xl text-white bg-gradient-to-tr from-[#C5221F] via-[#FBBC05] to-[#C5221F] transition-all hover:scale-105 cursor-pointer shadow-md"
+                aria-label="Gmail"
+              >
+                <MdAlternateEmail className="text-2xl" />
+
+              </button>
+
 
               <button
                 onClick={handleInstagramClick}

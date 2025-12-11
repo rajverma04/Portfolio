@@ -13,6 +13,7 @@ import Education from "./src/education";
 import CodingProfiles from "./src/codingProfiles";
 import Background3D from "./src/Background3D";
 import Loader from "./src/Loader";
+import ChatBot from "./src/ChatBot/chatbot";
 
 // Portfolio Main Component
 function Portfolio() {
@@ -71,6 +72,9 @@ function Portfolio() {
 
             {/* Contact Section */}
             <Contact />
+
+            {/* AI ChatBot */}
+            {/* <ChatBot /> */}
           </main>
         </div>
       )}
