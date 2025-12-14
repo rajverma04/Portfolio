@@ -43,11 +43,11 @@ const categories = [
     title: "Frontend",
     icon: "🎨",
     tech: [
-      { node: <FaHtml5 className="text-5xl text-[#f75403]" />, title: "HTML5" },
-      { node: <SiTailwindcss className="text-5xl text-[#38BDF8]" />, title: "Tailwind CSS" },
-      { node: <SiRedux className="text-5xl text-[#764ABC]" />, title: "Redux" },
       { node: <SiReactrouter className="text-5xl text-[#CA4245]" />, title: "React Router" },
-      { node: <SiTypescript className="text-5xl text-[#3178C6]" />, title: "TypeScript" }
+      { node: <SiRedux className="text-5xl text-[#764ABC]" />, title: "Redux" },
+      { node: <SiTailwindcss className="text-5xl text-[#38BDF8]" />, title: "Tailwind CSS" },
+      { node: <SiTypescript className="text-5xl text-[#3178C6]" />, title: "TypeScript" },
+      { node: <FaHtml5 className="text-5xl text-[#f75403]" />, title: "HTML5" },
     ],
   },
 
@@ -56,9 +56,9 @@ const categories = [
     icon: "💻",
     tech: [
       { node: <FaJs className="text-5xl text-[#f4e11e]" />, title: "JavaScript" },
+      { node: <SiCplusplus className="text-5xl text-[#0c4a86]" />, title: "C++" }, 
       { node: <FaPython className="text-5xl text-[#3776AB]" />, title: "Python" },
       { node: <FaJava className="text-5xl text-[#f89820]" />, title: "Java" },
-      { node: <SiCplusplus className="text-5xl text-[#0c4a86]" />, title: "C++" }, // Using Database icon as placeholder for C if FaCuttlefish not found/preferred
     ],
   },
   {
@@ -66,9 +66,9 @@ const categories = [
     icon: "🗄️",
     tech: [
       { node: <SiMongodb className="text-5xl text-[#4db33d]" />, title: "MongoDB" },
-      { node: <GrMysql className="text-5xl text-[#00758F]" />, title: "MySQL" },
-      { node: <SiExpress className="text-5xl text-gray-300" />, title: "Express.js" },
       { node: <FaNodeJs className="text-5xl text-[#3c873a]" />, title: "Node.js" },
+      { node: <SiExpress className="text-5xl text-gray-300" />, title: "Express.js" },
+      { node: <GrMysql className="text-5xl text-[#00758F]" />, title: "MySQL" },
     ],
   },
 

@@ -123,7 +123,6 @@ export default function About() {
                 aria-label="Gmail"
               >
                 <MdAlternateEmail className="text-2xl" />
-
               </button>
 
 
