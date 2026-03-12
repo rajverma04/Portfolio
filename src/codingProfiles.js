@@ -9,7 +9,7 @@ export default function CodingProfiles() {
             platform: "LeetCode",
             link: "https://leetcode.com/u/rajverma04/",
             icon: <SiLeetcode className="text-5xl text-[#FFA116]" />,
-            desc: "Solved 200+ Problems",
+            desc: "Solved 300+ Problems",
             color: "from-[#FFA116] to-[#FFD700]",
             bg: "group-hover:shadow-[#FFA116]/20",
         },

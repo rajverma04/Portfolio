@@ -43,11 +43,11 @@ const categories = [
     title: "Frontend",
     icon: "🎨",
     tech: [
+      { node: <FaHtml5 className="text-5xl text-[#f75403]" />, title: "HTML5" },
+      { node: <SiTailwindcss className="text-5xl text-[#38BDF8]" />, title: "Tailwind CSS" },
       { node: <SiReactrouter className="text-5xl text-[#CA4245]" />, title: "React Router" },
       { node: <SiRedux className="text-5xl text-[#764ABC]" />, title: "Redux" },
-      { node: <SiTailwindcss className="text-5xl text-[#38BDF8]" />, title: "Tailwind CSS" },
-      { node: <SiTypescript className="text-5xl text-[#3178C6]" />, title: "TypeScript" },
-      { node: <FaHtml5 className="text-5xl text-[#f75403]" />, title: "HTML5" },
+      { node: <FaJs className="text-5xl text-[#f4e11e]" />, title: "JavaScript" },
     ],
   },
 
@@ -55,10 +55,10 @@ const categories = [
     title: "Languages",
     icon: "💻",
     tech: [
-      { node: <FaJs className="text-5xl text-[#f4e11e]" />, title: "JavaScript" },
-      { node: <SiCplusplus className="text-5xl text-[#0c4a86]" />, title: "C++" }, 
-      { node: <FaPython className="text-5xl text-[#3776AB]" />, title: "Python" },
+      { node: <SiCplusplus className="text-5xl text-[#0c4a86]" />, title: "C++" },
       { node: <FaJava className="text-5xl text-[#f89820]" />, title: "Java" },
+
+      { node: <FaPython className="text-5xl text-[#3776AB]" />, title: "Python" },
     ],
   },
   {

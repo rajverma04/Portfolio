@@ -8,7 +8,7 @@ export default function Education() {
       title: "Bachelor of Technology - B.Tech (CSE)",
       institution: "Lovely Professional University, Punjab",
       duration: "Aug 2023 – Present",
-      grade: "CGPA: 7.64",
+      grade: "CGPA: 7.76",
     },
     {
       title: "Higher Secondary Certificate (XII)",
