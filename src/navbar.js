@@ -9,10 +9,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTheme } from "./ThemeContext";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("about");
   const [isMobile, setIsMobile] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -81,8 +83,9 @@ export default function Navbar() {
         className={`
           flex items-center 
           ${isMobile ? "justify-around px-2" : "gap-1"}
-          bg-[#0f0f16]/90 backdrop-blur-md border border-white/5 rounded-full p-1.5 shadow-lg shadow-purple-500/10
+          backdrop-blur-md border border-white/10 rounded-full p-1.5 shadow-lg shadow-purple-500/10
         `}
+        style={{ backgroundColor: "var(--navbar-bg)" }}
       >
         {navItems.map((item) => (
           <button
@@ -102,8 +105,32 @@ export default function Navbar() {
             </span>
           </button>
         ))}
-      </motion.nav>
-    </div>
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            className={`
+              relative rounded-full transition-all duration-300 flex items-center justify-center
+              ${isMobile ? "p-3" : "px-3 py-2.5"}
+              text-gray-400 hover:text-white hover:bg-white/5 hover:cursor-pointer
+            `}
+          >
+            {theme === "dark" ? (
+              /* Sun icon */
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                className={`${isMobile ? "w-5 h-5" : "w-4 h-4"} text-yellow-300`}>
+                <path d="M12 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm0 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm9-5a1 1 0 010 2h-1a1 1 0 110-2h1zM4 11a1 1 0 010 2H3a1 1 0 110-2h1zm13.657-6.657a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707zM6.343 17.657a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707zM17.657 17.657a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 011.414-1.414l.707.707zM6.343 6.343a1 1 0 01-1.414 1.414l-.707-.707A1 1 0 015.636 5.636l.707.707zM12 7a5 5 0 100 10A5 5 0 0012 7z"/>
+              </svg>
+            ) : (
+              /* Moon icon */
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                className={`${isMobile ? "w-5 h-5" : "w-4 h-4"} text-indigo-300`}>
+                <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+              </svg>
+            )}
+          </button>
+        </motion.nav>
+      </div>
   );
 }
 

@@ -95,7 +95,7 @@ export default function About() {
               href={resumePdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-2xl bg-white text-black font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-2 cursor-pointer"
+              className="px-8 py-4 border-1 rounded-2xl bg-white text-black font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-2 cursor-pointer"
             >
               <FontAwesomeIcon icon={faFileAlt} />
               <span>Resume</span>
@@ -125,14 +125,14 @@ export default function About() {
                 <MdAlternateEmail className="text-2xl" />
               </button>
 
-
-              <button
+              {/* Instagram */}
+              {/* <button
                 onClick={handleInstagramClick}
                 className="p-4 rounded-2xl text-white bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] transition-all hover:scale-105 cursor-pointer shadow-md"
                 aria-label="Instagram"
               >
                 <FontAwesomeIcon icon={faInstagram} className="text-xl" />
-              </button>
+              </button> */}
 
             </div>
           </div>

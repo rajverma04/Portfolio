@@ -22,6 +22,14 @@ export default function CodingProfiles() {
             bg: "group-hover:shadow-[#00A86B]/20",
         },
         {
+            platform: "Codeforeces",
+            link: "https://codeforces.com/profile/rajverma04",
+            icon: <SiGeeksforgeeks className="text-5xl text-[#00A86B]" />,
+            desc: "Institute Rank 4891",
+            color: "from-[#00A86B] to-[#2E8B57]",
+            bg: "group-hover:shadow-[#00A86B]/20",
+        },
+        {
             platform: "HackerRank",
             link: "https://www.hackerrank.com/rajverma04",
             icon: <SiHackerrank className="text-5xl text-[#2EC866]" />,
@@ -53,7 +61,8 @@ export default function CodingProfiles() {
     return (
         <section
             id="coding"
-            className="min-h-[60vh] flex flex-col items-center text-white px-6 py-10 relative overflow-hidden pointer-events-auto"
+            className="min-h-[60vh] flex flex-col items-center px-6 py-10 relative overflow-hidden pointer-events-auto"
+            style={{ color: 'var(--text-primary)' }}
         >
             <div className="max-w-6xl w-full relative z-10">
                 <motion.div
@@ -92,14 +101,18 @@ export default function CodingProfiles() {
                             <div className={`absolute -inset-0.5 bg-gradient-to-r ${profile.color} rounded-2xl opacity-0 group-hover:opacity-75 blur transition duration-500`} />
 
                             {/* Card Content */}
-                            <div className="relative h-full bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 flex flex-col items-center gap-6 transition-all duration-300 group-hover:bg-[#111]">
+                            <div
+                                className="relative h-full border border-white/10 rounded-2xl p-8 flex flex-col items-center gap-6 transition-all duration-300"
+                                style={{ backgroundColor: 'var(--bg-card)' }}
+                            >
                                 {/* Icon Circle */}
                                 <div className="p-4 rounded-full bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-300">
                                     {profile.icon}
                                 </div>
 
                                 <div className="text-center space-y-2">
-                                    <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                                    <h3 className="text-2xl font-bold group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 transition-all"
+                                        style={{ color: 'var(--text-primary)' }}>
                                         {profile.platform}
                                     </h3>
                                     <p className="text-gray-400 text-sm font-medium">
@@ -108,7 +121,8 @@ export default function CodingProfiles() {
                                 </div>
 
                                 {/* View Profile Button */}
-                                <div className="mt-2 flex items-center gap-2 text-sm font-bold text-white/70 group-hover:text-white transition-colors">
+                                <div className="mt-2 flex items-center gap-2 text-sm font-bold opacity-70 group-hover:opacity-100 transition-opacity"
+                                    style={{ color: 'var(--text-primary)' }}>
                                     <span>View Profile</span>
                                     <FaExternalLinkAlt className="text-xs group-hover:translate-x-1 transition-transform" />
                                 </div>
@@ -120,3 +134,5 @@ export default function CodingProfiles() {
         </section>
     );
 }
+
+

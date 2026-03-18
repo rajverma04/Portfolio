@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import "./src/index.css";
+import { ThemeProvider } from "./src/ThemeContext";
 import TechStack from "./src/techStack";
 import Navbar from "./src/navbar";
 import About from "./src/About";
@@ -14,6 +15,8 @@ import CodingProfiles from "./src/codingProfiles";
 import Background3D from "./src/Background3D";
 import Loader from "./src/Loader";
 import ChatBot from "./src/ChatBot/chatbot";
+import Certificates from "./src/certificates";
+import Achievements from "./src/achievements";
 
 // Portfolio Main Component
 function Portfolio() {
@@ -44,7 +47,7 @@ function Portfolio() {
       </AnimatePresence>
 
       {!loading && (
-        <div className="min-h-screen text-white relative overflow-hidden">
+        <div className="min-h-screen relative overflow-hidden" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
           <Background3D />
 
           {/* Fixed Navigation Bar */}
@@ -63,6 +66,12 @@ function Portfolio() {
 
             {/* Projects Section */}
             <Projects />
+
+            {/* Certificates Section */}
+            <Certificates />
+
+            {/* Achievements Section */}
+            <Achievements />
 
             {/* Conding Platform */}
             <CodingProfiles />
@@ -85,12 +94,14 @@ function Portfolio() {
 // Main App Component with Routing
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Portfolio />} />
-        <Route path="/resume" element={<Resume />} />
-      </Routes>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Portfolio />} />
+          <Route path="/resume" element={<Resume />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
