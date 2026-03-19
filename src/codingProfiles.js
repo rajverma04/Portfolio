@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { SiLeetcode, SiGeeksforgeeks, SiHackerrank } from "react-icons/si";
+import { SiLeetcode, SiGeeksforgeeks, SiHackerrank, SiCodeforces } from "react-icons/si";
 import { FaExternalLinkAlt, } from "react-icons/fa";
 
 export default function CodingProfiles() {
@@ -22,12 +22,11 @@ export default function CodingProfiles() {
             bg: "group-hover:shadow-[#00A86B]/20",
         },
         {
-            platform: "Codeforeces",
+            platform: "Codeforces",
             link: "https://codeforces.com/profile/rajverma04",
-            icon: <SiGeeksforgeeks className="text-5xl text-[#00A86B]" />,
-            desc: "Institute Rank 4891",
-            color: "from-[#00A86B] to-[#2E8B57]",
-            bg: "group-hover:shadow-[#00A86B]/20",
+            icon: <SiCodeforces className="text-5xl text-[#1F8ACB]" />,
+            color: "from-[#1F8ACB] to-[#3FA7F0]",
+            bg: "group-hover:shadow-[#1F8ACB]/20",
         },
         {
             platform: "HackerRank",
