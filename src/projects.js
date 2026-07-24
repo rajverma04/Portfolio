@@ -7,6 +7,7 @@ const gstinvoice = new URL("./image/gstinvoice.jpg", import.meta.url).href;
 const taksyImg = new URL("./image/taksyImg.jpg", import.meta.url).href;
 const ailearning = new URL("./image/ailearning.jpg", import.meta.url).href;
 const filedistribution = new URL("./image/filedistribution.jpg", import.meta.url).href;
+const gstImg = new URL("./image/gstImg.jpg", import.meta.url).href;
 
 const DESCRIPTION_LIMIT = 120;
 
@@ -17,6 +18,26 @@ const Projects = () => {
     setExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
 
   const projects = [
+    {
+      title: "GST Invoice Generator App",
+      img: gstImg,
+      description:
+        "Developed a cross-platform GST billing application using React Native and Expo for generating and managing GST-compliant invoices. Built reusable invoice forms with real-time CGST, SGST, and IGST calculations using GSTIN-based state code parsing. Implemented PDF invoice generation, preview, and sharing functionality with Expo Print and Sharing APIs. Designed a scalable component-based architecture with TypeScript, Expo Router, and React Hooks while integrating REST APIs with Axios for seamless data handling, validation, and error management.",
+      tech: [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "Expo Router",
+        "React Hooks",
+        "Axios",
+        "WebView",
+        "Expo Print",
+        "Expo Sharing"
+      ],
+      liveLink: "https://drive.google.com/file/d/1emlNw-iFRW1qSLyqL58qaDPP_DqMNCzX/view",
+      githubLink: "https://github.com/rajverma04/gstinvoice-app",
+      date: "Jul - Aug 26",
+    },
     {
       title: "Taksy",
       img: taksyImg,
@@ -41,13 +62,15 @@ const Projects = () => {
       title: "CodeNexus",
       img: codeNexusImg,
       description:
-        "Developed a scalable MERN-based coding platform supporting multiple programming languages with real-time code execution via Judge0 API. Implemented Redis caching to optimize repeated API and database calls, improving backend performance. Built an AI-powered debugging assistant using Google Gemini API to analyze runtime/compiler errors and provide contextual fix suggestions. Integrated the Monaco Editor to deliver a VS Code–like coding experience with syntax highlighting and auto-completion. Implemented secure JWT-based authentication with OTP email verification and optimized performance and technical SEO, achieving Lighthouse scores of 100 in Performance and SEO.",
+        "Developed a scalable MERN-based coding platform supporting multiple programming languages with real-time code execution via Judge0 API. Built an AI-powered debugging assistant using Google Gemini API to analyze runtime/compiler errors and provide contextual fix suggestions. Integrated Redis caching to optimize API and database performance and Monaco Editor for a VS Code–like coding experience with syntax highlighting and auto-completion. Implemented secure JWT authentication with OTP email verification, containerized the application using Docker, published production-ready images to Docker Hub, and optimized performance and technical SEO, achieving Lighthouse scores of 100 in Performance and SEO.",
       tech: [
         "React.js",
         "Node.js",
         "Express.js",
         "MongoDB",
         "Redis",
+        "Docker",
+        "Docker Hub",
         "Monaco Editor",
         "Judge0 API",
         "Google Gemini API",
@@ -188,7 +211,7 @@ const Projects = () => {
                     <img
                       src={project.img}
                       alt={project.title}
-                      className="w-full h-auto rounded-2xl object-cover"
+                      className="w-full aspect-video rounded-2xl object-cover object-top border border-white/10"
                     />
                   </div>
                 )}

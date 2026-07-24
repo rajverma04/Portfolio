@@ -9,18 +9,38 @@ import {
   FaJava,
   FaGithub,
   FaGitAlt,
-  FaDocker
+  FaDocker,
+  FaAws,
+  FaCss3Alt,
+  FaLinux,
 } from "react-icons/fa";
 
 import {
-  SiMongodb,
-  SiExpress,
-  SiPostman,
-  SiRedux,
-  SiTailwindcss,
-  SiReactrouter,
   SiTypescript,
-  SiCplusplus
+  SiPostgresql,
+  SiRedis,
+  SiPrisma,
+  SiSocketdotio,
+  SiJsonwebtokens,
+  SiAuth0,
+  SiApachekafka,
+  SiGithubactions,
+  SiPrometheus,
+  SiGrafana,
+  SiWebpack,
+  SiBabel,
+  SiVite,
+  SiKubernetes,
+  SiFigma,
+  SiRedux,
+  SiReactrouter,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiVercel,
+  SiPostman,
+  SiCplusplus,
+  SiJenkins,
 } from "react-icons/si";
 
 import { VscVscodeInsiders } from "react-icons/vsc";
@@ -30,24 +50,80 @@ import { GrMysql } from "react-icons/gr";
 
 const categories = [
   {
-    title: "MERN Stack",
-    icon: "🌐",
-    tech: [
-      { node: <FaReact className="text-5xl text-[#20d9ff]" />, title: "React" },
-      { node: <SiExpress className="text-5xl text-gray-300" />, title: "Express.js" },
-      { node: <FaNodeJs className="text-5xl text-[#3c873a]" />, title: "Node.js" },
-      { node: <SiMongodb className="text-5xl text-[#4db33d]" />, title: "MongoDB" },
-    ],
-  },
-  {
     title: "Frontend",
     icon: "🎨",
     tech: [
-      { node: <FaHtml5 className="text-5xl text-[#f75403]" />, title: "HTML5" },
-      { node: <SiTailwindcss className="text-5xl text-[#38BDF8]" />, title: "Tailwind CSS" },
+      { node: <FaReact className="text-5xl text-[#61DAFB]" />, title: "React.js" },
+      { node: <SiTypescript className="text-5xl text-[#3178C6]" />, title: "TypeScript" },
+      { node: <FaJs className="text-5xl text-[#F7DF1E]" />, title: "JavaScript" },
+      { node: <SiRedux className="text-5xl text-[#764ABC]" />, title: "Redux Toolkit" },
       { node: <SiReactrouter className="text-5xl text-[#CA4245]" />, title: "React Router" },
-      { node: <SiRedux className="text-5xl text-[#764ABC]" />, title: "Redux" },
-      { node: <FaJs className="text-5xl text-[#f4e11e]" />, title: "JavaScript" },
+      { node: <SiTailwindcss className="text-5xl text-[#38BDF8]" />, title: "Tailwind CSS" },
+      { node: <FaHtml5 className="text-5xl text-[#E34F26]" />, title: "HTML5" },
+      { node: <FaCss3Alt className="text-5xl text-[#1572B6]" />, title: "CSS3" },
+    ],
+  },
+
+  {
+    title: "Backend",
+    icon: "⚙️",
+    tech: [
+      { node: <FaNodeJs className="text-5xl text-[#3C873A]" />, title: "Node.js" },
+      { node: <SiExpress className="text-5xl text-gray-300" />, title: "Express.js" },
+      { node: <SiSocketdotio className="text-5xl text-white" />, title: "WebSockets" },
+      { node: <SiJsonwebtokens className="text-5xl text-[#D63AFF]" />, title: "JWT" },
+      { node: <SiAuth0 className="text-5xl text-[#EB5424]" />, title: "OAuth 2.0" },
+      { node: <SiApachekafka className="text-5xl text-white" />, title: "Kafka" },
+    ],
+  },
+
+  {
+    title: "Databases",
+    icon: "🗄️",
+    tech: [
+      { node: <SiMongodb className="text-5xl text-[#47A248]" />, title: "MongoDB" },
+      { node: <SiPostgresql className="text-5xl text-[#4169E1]" />, title: "PostgreSQL" },
+      { node: <SiRedis className="text-5xl text-[#DC382D]" />, title: "Redis" },
+      { node: <SiPrisma className="text-5xl text-white" />, title: "Prisma" },
+    ],
+  },
+
+  {
+    title: "DevOps & Cloud",
+    icon: "☁️",
+    tech: [
+      { node: <FaDocker className="text-5xl text-[#2496ED]" />, title: "Docker" },
+      { node: <SiKubernetes className="text-5xl text-[#326CE5]" />, title: "Kubernetes" },
+      { node: <FaAws className="text-5xl text-[#FF9900]" />, title: "AWS" },
+      { node: <FaLinux className="text-5xl text-[#FCC624]" />, title: "Linux" },
+      { node: <SiGithubactions className="text-5xl text-[#2088FF]" />, title: "GitHub Actions" },
+      { node: <SiJenkins className="text-5xl text-[#D24939]" />, title: "Jenkins" },
+      { node: <SiVercel className="text-5xl text-white" />, title: "Vercel" },
+    ],
+  },
+
+  {
+    title: "Monitoring",
+    icon: "📊",
+    tech: [
+      { node: <SiPrometheus className="text-5xl text-[#E6522C]" />, title: "Prometheus" },
+      { node: <SiGrafana className="text-5xl text-[#F46800]" />, title: "Grafana" },
+      { node: <SiGrafana className="text-5xl text-[#00B8D9]" />, title: "Loki" },
+    ],
+  },
+
+  {
+    title: "Tools",
+    icon: "🛠️",
+    tech: [
+      { node: <FaGitAlt className="text-5xl text-[#F05032]" />, title: "Git" },
+      { node: <FaGithub className="text-5xl text-white" />, title: "GitHub" },
+      { node: <SiPostman className="text-5xl text-[#FF6C37]" />, title: "Postman" },
+      { node: <SiVite className="text-5xl text-[#646CFF]" />, title: "Vite" },
+      { node: <SiWebpack className="text-5xl text-[#8DD6F9]" />, title: "Webpack" },
+      { node: <SiBabel className="text-5xl text-[#F9DC3E]" />, title: "Babel" },
+      { node: <VscVscodeInsiders className="text-5xl text-[#007ACC]" />, title: "VS Code" },
+      { node: <SiFigma className="text-5xl text-[#A259FF]" />, title: "Figma" },
     ],
   },
 
@@ -55,36 +131,13 @@ const categories = [
     title: "Languages",
     icon: "💻",
     tech: [
-      { node: <SiCplusplus className="text-5xl text-[#0c4a86]" />, title: "C++" },
-      { node: <FaJava className="text-5xl text-[#f89820]" />, title: "Java" },
-
+      { node: <SiCplusplus className="text-5xl text-[#00599C]" />, title: "C++" },
       { node: <FaPython className="text-5xl text-[#3776AB]" />, title: "Python" },
+      { node: <FaJs className="text-5xl text-[#F7DF1E]" />, title: "JavaScript" },
+      { node: <SiTypescript className="text-5xl text-[#3178C6]" />, title: "TypeScript" },
+      { node: <GrMysql className="text-5xl text-[#00758F]" />, title: "SQL" },
     ],
   },
-  {
-    title: "Backend & DB",
-    icon: "🗄️",
-    tech: [
-      { node: <SiMongodb className="text-5xl text-[#4db33d]" />, title: "MongoDB" },
-      { node: <FaNodeJs className="text-5xl text-[#3c873a]" />, title: "Node.js" },
-      { node: <SiExpress className="text-5xl text-gray-300" />, title: "Express.js" },
-      { node: <GrMysql className="text-5xl text-[#00758F]" />, title: "MySQL" },
-    ],
-  },
-
-  {
-    title: "Tools",
-    icon: "🧰",
-    tech: [
-      { node: <FaGitAlt className="text-5xl text-[#f05032]" />, title: "Git" },
-      { node: <FaGithub className="text-5xl text-white" />, title: "GitHub" },
-      { node: <FaDocker className="text-5xl text-[#2496ED]" />, title: "Docker" },
-      { node: <VscVscodeInsiders className="text-5xl text-[#3e9dd7]" />, title: "VS Code" },
-      { node: <SiPostman className="text-5xl text-[#f75403]" />, title: "Postman" },
-      { node: <PiFigmaLogoFill className="text-5xl text-[#8a1bfc]" />, title: "Figma" },
-    ],
-  },
-
 ];
 
 const containerVariants = {

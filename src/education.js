@@ -8,12 +8,12 @@ export default function Education() {
       title: "Bachelor of Technology - B.Tech (CSE)",
       institution: "Lovely Professional University, Punjab",
       duration: "Aug 2023 – Present",
-      grade: "CGPA: 7.76",
+      grade: "CGPA: 7.80",
     },
     {
       title: "Higher Secondary Certificate (XII)",
       institution: "B N Saha DAV Pub School, Giridih, Jharkhand",
-      duration: "Apr 2020 – Feb 2022",
+      duration: "Apr 2021 – Feb 2022",
       grade: "Percentage: 83%",
     },
     {

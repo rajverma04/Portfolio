@@ -8,15 +8,15 @@ const Achievements = () => {
             description: "Achieved a peak contest rating of 1653 on LeetCode.",
             icon: <FaTrophy />,
             link: "https://leetcode.com/u/rajverma04", // your profile link
-            date: "Feb 2026",
+            date: "Feb 26",
         },
         {
             title: "DSA Problem Solving",
             description:
-                "Solved 500+ DSA problems across LeetCode and GeeksforGeeks platforms.",
+                "Solved 650+ DSA problems across LeetCode and GeeksforGeeks platforms.",
             icon: <FaTrophy />,
             link: "https://codolio.com/profile/rajverma04",
-            date: "Jan 2026",
+            date: "Jan 26",
         },
         {
             title: "Coding Ninjas Premier League",
@@ -24,7 +24,7 @@ const Achievements = () => {
                 "Secured AIR-7 rank in Coding Ninjas Premier League coding competition.",
             icon: <FaTrophy />,
             link: "https://ninjasfiles.s3.amazonaws.com/event_certi_image3924276e95e39f6c7f05eaf56e1248069d2109.jpg",
-            date: "May 2024",
+            date: "May 24",
         },
     ];
 

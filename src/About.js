@@ -57,7 +57,11 @@ export default function About() {
             <div className="flex items-center gap-3 text-xl sm:text-2xl text-gray-300 font-medium">
               <span>I am a</span>
               <RotatingText
-                texts={["Full Stack Developer", "UI/UX Enthusiast", "Problem Solver"]}
+                texts={[
+                  "Full Stack Developer",
+                  "Cloud & DevOps Learner",
+                  "Problem Solver"
+                ]}
                 mainClassName="text-indigo-400 font-semibold"
                 staggerFrom="last"
                 initial={{ y: "100%" }}
@@ -73,18 +77,17 @@ export default function About() {
 
           {/* Description */}
           <p className="text-lg text-gray-400 leading-relaxed max-w-lg">
-            Passionate about building scalable web applications and crafting intuitive user experiences.
-            I bridge the gap between complex engineering and elegant design.
+            Full Stack Developer specializing in building scalable web applications, real-time systems, and secure APIs. Experienced with MERN, Docker, Redis, PostgreSQL, AWS, and modern frontend technologies, with a strong foundation in Data Structures and System Design.
           </p>
 
           {/* Stats Row */}
           <div className="flex gap-8 border-t border-white/10 pt-8">
             <div>
-              <h4 className="text-3xl font-bold text-white">8+</h4>
+              <h4 className="text-3xl font-bold text-white">10+</h4>
               <p className="text-sm text-gray-500">Projects Completed</p>
             </div>
             <div>
-              <h4 className="text-3xl font-bold text-white">500+</h4>
+              <h4 className="text-3xl font-bold text-white">650+</h4>
               <p className="text-sm text-gray-500">DSA Problems</p>
             </div>
           </div>

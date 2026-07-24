@@ -6,6 +6,20 @@ import { FaExternalLinkAlt, } from "react-icons/fa";
 export default function CodingProfiles() {
     const codingProfiles = [
         {
+            platform: "Codolio",
+            link: "https://codolio.com/profile/rajverma04",
+            icon: (
+                <img
+                    src="https://d3hr337ydpgtsa.cloudfront.net/assets/Banner.png"
+                    alt="Codolio"
+                    className="w-12 h-12 object-cover rounded-full"
+                />
+            ),
+            desc: "Solved 650+ Problems",
+            color: "from-[#4F46E5] to-[#7C3AED]",
+            bg: "group-hover:shadow-[#4F46E5]/20",
+        },
+        {
             platform: "LeetCode",
             link: "https://leetcode.com/u/rajverma04/",
             icon: <SiLeetcode className="text-5xl text-[#FFA116]" />,
