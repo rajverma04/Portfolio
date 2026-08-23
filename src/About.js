@@ -20,6 +20,7 @@ export default function About() {
             transition={{ duration: 0.7 }}
           >
             <span className="clay-kicker">01 / welcome</span>
+            <span className="clay-tag availability-tag hero-availability">Available for work</span>
             <h1 className="clay-title">
               Hello, I’m
               <br />
@@ -76,7 +77,6 @@ export default function About() {
               >
                 <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
               </a>
-              <span className="clay-tag">Available for work</span>
             </div>
           </motion.div>
           <motion.div

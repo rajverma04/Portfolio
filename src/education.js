@@ -55,8 +55,8 @@ export default function Education() {
                 <p className="clay-copy text-sm mt-2">{institution}</p>
               </div>
               <div className="edu-date">
-                <div>{date}</div>
-                <span className="clay-tag mt-3">{grade}</span>
+                <div>{i === 0 ? <>Aug 2023 — <span className="present-word">Present</span></> : date}</div>
+                <span className="clay-tag mt-3 grade-pill">{grade}</span>
               </div>
             </motion.article>
           ))}
