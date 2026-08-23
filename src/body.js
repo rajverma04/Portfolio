@@ -14,6 +14,11 @@ export default function Body() {
         src={profileImage}
         alt="3D developer character working on a laptop"
       />
+      <span className="avatar-typing" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+      </span>
       <span className="avatar-hover-message" aria-hidden="true">
         <strong>DO NOT DISTURB</strong>
         <small>coding in progress</small>

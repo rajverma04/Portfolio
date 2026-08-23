@@ -86,6 +86,19 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <div className="hero-avatar-card">
+              <div className="hero-code-window" aria-hidden="true">
+                <span className="hero-code-tag">SOLVING 2SUM</span>
+                <span className="hero-code-line" style={{ "--line": 0 }}>vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; a, int target) {'{'}</span>
+                <span className="hero-code-line" style={{ "--line": 1 }}>  unordered_map&lt;int, int&gt; seen;</span>
+                <span className="hero-code-line" style={{ "--line": 2 }}>  for (int i = 0; i &lt; a.size(); i++) {'{'}</span>
+                <span className="hero-code-line" style={{ "--line": 3 }}>    int need = target - a[i];</span>
+                <span className="hero-code-line" style={{ "--line": 4 }}>    if (seen.count(need))</span>
+                <span className="hero-code-line" style={{ "--line": 5 }}>      return {'{'}seen[need], i{'}'};</span>
+                <span className="hero-code-line" style={{ "--line": 6 }}>    seen[a[i]] = i;</span>
+                <span className="hero-code-line" style={{ "--line": 7 }}>  {'}'}</span>
+                <span className="hero-code-line" style={{ "--line": 8 }}>  return {'{'}-1, -1{'}'};</span>
+                <span className="hero-code-line" style={{ "--line": 9 }}>{'}'}</span>
+              </div>
               <Body />
               <span className="hero-sticker">OPEN TO BUILD</span>
             </div>
