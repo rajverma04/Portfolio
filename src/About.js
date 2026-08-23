@@ -1,152 +1,107 @@
-import { Link } from "react-router-dom";
-import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faFileAlt, faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight, faFileAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Body from "./body";
 import RotatingText from "../RotatingText/RotatingText";
-import { SiGmail } from "react-icons/si";
 import { MdAlternateEmail } from "react-icons/md";
 
-const resumePdf = new URL("../public/RAJ_CV.pdf", import.meta.url).href;
+const resumePdf = "/RAJ_CV.pdf";
 
 export default function About() {
-  const handleGitHubClick = () => {
-    window.open("https://github.com/rajverma04", "_blank");
-  };
-  const handleLinkedinClick = () => {
-    window.open("https://www.linkedin.com/in/rajverma04/", "_blank");
-  };
-  const handleInstagramClick = () => {
-    window.open("https://www.instagram.com/rajjo.4/", "_blank");
-  };
-
   return (
-    <section
-      id="about"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-10"
-    >
-      {/* Background Elements */}
-      <div className="absolute top-20 left-[-10%] w-96 h-96 bg-indigo-500/20 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-20 right-[-10%] w-96 h-96 bg-purple-500/20 blur-[120px] rounded-full pointer-events-none" />
-
-      {/* Main Glass Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="pointer-events-auto bg-white/5 backdrop-blur-2xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center relative z-10 shadow-2xl"
-      >
-        {/* Left: Text Content */}
-        <div className="space-y-8 order-2 md:order-1">
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            Available for Work
-          </div>
-
-          {/* Heading */}
-          <div>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4 text-white">
-              Raj <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Verma</span>
+    <section id="about" className="hero-clay clay-section">
+      <div className="clay-shell">
+        <div className="hero-grid">
+          <motion.div
+            className="hero-copy-card clay-panel"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="clay-kicker">01 / welcome</span>
+            <h1 className="clay-title">
+              Hello, I’m
+              <br />
+              <span>Raj Verma.</span>
             </h1>
-            <div className="flex items-center gap-3 text-xl sm:text-2xl text-gray-300 font-medium">
-              <span>I am a</span>
-              <RotatingText
-                texts={[
-                  "Full Stack Developer",
-                  "Cloud & DevOps Learner",
-                  "Problem Solver"
-                ]}
-                mainClassName="text-indigo-400 font-semibold"
-                staggerFrom="last"
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "-120%" }}
-                staggerDuration={0.025}
-                splitLevelClassName="overflow-hidden"
-                transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                rotationInterval={2000}
-              />
+            <div className="hero-role">
+              I build{" "}
+              <strong>
+                <RotatingText
+                  texts={[
+                    "full-stack products",
+                    "real-time systems",
+                    "friendly interfaces",
+                  ]}
+                  rotationInterval={2200}
+                />
+              </strong>
             </div>
-          </div>
-
-          {/* Description */}
-          <p className="text-lg text-gray-400 leading-relaxed max-w-lg">
-            Full Stack Developer specializing in building scalable web applications, real-time systems, and secure APIs. Experienced with MERN, Docker, Redis, PostgreSQL, AWS, and modern frontend technologies, with a strong foundation in Data Structures and System Design.
-          </p>
-
-          {/* Stats Row */}
-          <div className="flex gap-8 border-t border-white/10 pt-8">
-            <div>
-              <h4 className="text-3xl font-bold text-white">10+</h4>
-              <p className="text-sm text-gray-500">Projects Completed</p>
+            <p className="clay-copy max-w-xl">
+              Full Stack Developer specializing in scalable web applications,
+              real-time systems, and secure APIs. I enjoy turning complex
+              problems into clear, useful experiences.
+            </p>
+            <div className="hero-actions">
+              <a
+                href={resumePdf}
+                target="_blank"
+                rel="noreferrer"
+                className="clay-button"
+              >
+                View resume <FontAwesomeIcon icon={faArrowRight} />
+              </a>
+              <a
+                href="mailto:rajkumargrd56@gmail.com"
+                className="clay-button clay-button-secondary"
+              >
+                <MdAlternateEmail /> Say hello
+              </a>
             </div>
-            <div>
-              <h4 className="text-3xl font-bold text-white">650+</h4>
-              <p className="text-sm text-gray-500">DSA Problems</p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a
+                href="https://github.com/rajverma04"
+                target="_blank"
+                rel="noreferrer"
+                className="clay-tag"
+              >
+                <FontAwesomeIcon icon={faGithub} /> GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/rajverma04/"
+                target="_blank"
+                rel="noreferrer"
+                className="clay-tag"
+              >
+                <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
+              </a>
+              <span className="clay-tag">Available for work</span>
             </div>
-          </div>
-
-          {/* Buttons */}
-          <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href={resumePdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 border-1 rounded-2xl bg-white text-black font-bold transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center gap-2 cursor-pointer"
-            >
-              <FontAwesomeIcon icon={faFileAlt} />
-              <span>Resume</span>
-            </a>
-
-            <div className="flex gap-3">
-              <button
-                onClick={handleGitHubClick}
-                className="p-4 rounded-2xl bg-white/5 border border-white/10 text-white transition-all hover:bg-white/10 hover:scale-105 hover:border-white/20 cursor-pointer"
-                aria-label="GitHub"
-              >
-                <FontAwesomeIcon icon={faGithub} className="text-xl" />
-              </button>
-              <button
-                onClick={handleLinkedinClick}
-                className="p-4 rounded-2xl text-white bg-gradient-to-tr from-[#0A66C2] to-[#0077B5] transition-all hover:scale-105 cursor-pointer shadow-md"
-                aria-label="LinkedIn"
-              >
-                <FontAwesomeIcon icon={faLinkedin} className="text-xl" />
-              </button>
-
-              <button
-                onClick={() => window.location.href = "mailto:rajkumargrd56@gmail.com"}
-                className="p-4 rounded-2xl text-white bg-gradient-to-tr from-[#C5221F] via-[#FBBC05] to-[#C5221F] transition-all hover:scale-105 cursor-pointer shadow-md"
-                aria-label="Gmail"
-              >
-                <MdAlternateEmail className="text-2xl" />
-              </button>
-
-              {/* Instagram */}
-              {/* <button
-                onClick={handleInstagramClick}
-                className="p-4 rounded-2xl text-white bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] transition-all hover:scale-105 cursor-pointer shadow-md"
-                aria-label="Instagram"
-              >
-                <FontAwesomeIcon icon={faInstagram} className="text-xl" />
-              </button> */}
-
+          </motion.div>
+          <motion.div
+            className="hero-side hero-visual-panel clay-panel"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+          >
+            <div className="hero-avatar-card">
+              <Body />
+              <span className="hero-sticker">OPEN TO BUILD</span>
             </div>
-          </div>
+            <div className="hero-stats">
+              <div className="hero-stat clay-panel">
+                <strong>10+</strong>
+                <span>PROJECTS</span>
+              </div>
+              <div className="hero-stat clay-panel">
+                <strong>650+</strong>
+                <span>DSA PROBLEMS</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* Right: Profile Image (Integrated Body Component) */}
-        <div className="order-1 md:order-2 flex justify-center md:justify-end">
-          <Body />
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
-

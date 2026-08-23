@@ -1,129 +1,70 @@
 import { motion } from "framer-motion";
 import { FaTrophy, FaExternalLinkAlt } from "react-icons/fa";
-
-const Achievements = () => {
-    const achievements = [
-        {
-            title: "LeetCode Contest Rating",
-            description: "Achieved a peak contest rating of 1653 on LeetCode.",
-            icon: <FaTrophy />,
-            link: "https://leetcode.com/u/rajverma04", // your profile link
-            date: "Feb 26",
-        },
-        {
-            title: "DSA Problem Solving",
-            description:
-                "Solved 650+ DSA problems across LeetCode and GeeksforGeeks platforms.",
-            icon: <FaTrophy />,
-            link: "https://codolio.com/profile/rajverma04",
-            date: "Jan 26",
-        },
-        {
-            title: "Coding Ninjas Premier League",
-            description:
-                "Secured AIR-7 rank in Coding Ninjas Premier League coding competition.",
-            icon: <FaTrophy />,
-            link: "https://ninjasfiles.s3.amazonaws.com/event_certi_image3924276e95e39f6c7f05eaf56e1248069d2109.jpg",
-            date: "May 24",
-        },
-    ];
-
-    const openInNewTab = (url) => {
-        if (!url || url === "#") return;
-        window.open(url, "_blank", "noopener,noreferrer");
-    };
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.2 },
-        },
-    };
-
-    const cardVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6 },
-        },
-    };
-
-    return (
-        <section
-            id="achievements"
-            className="min-h-screen flex py-10 flex-col items-center relative overflow-hidden"
-        >
-            {/* Background Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
-                <div className="absolute top-[20%] left-[10%] w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px]" />
-                <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-purple-500/10 rounded-full blur-[100px]" />
-            </div>
-
-            <div className="max-w-6xl w-full px-6 relative z-10">
-                {/* Heading */}
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                        🏆 Achievements
-                    </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-                        Highlights of my competitive programming and problem-solving journey.
-                    </p>
-                </motion.div>
-
-                {/* Grid */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    className="grid grid-cols-1 md:grid-cols-2 gap-8"
-                >
-                    {achievements.map((ach, i) => (
-                        <motion.article
-                            key={i}
-                            variants={cardVariants}
-                            whileHover={{ y: -10 }}
-                            className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-white/20 transition duration-300 flex flex-col"
-                        >
-                            {/* Header */}
-                            <div className="flex justify-between items-start mb-4">
-                                <h3 className="text-xl font-bold text-white group-hover:text-indigo-400">
-                                    {ach.title}
-                                </h3>
-                                <span className="text-xs text-indigo-300 bg-indigo-500/10 px-3 py-1 rounded-full">
-                                    {ach.date}
-                                </span>
-                            </div>
-
-                            {/* Icon */}
-                            <div className="text-indigo-400 text-3xl mb-4">
-                                {ach.icon}
-                            </div>
-
-                            {/* Description */}
-                            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                                {ach.description}
-                            </p>
-
-                            {/* Button */}
-                            <button
-                                onClick={() => openInNewTab(ach.link)}
-                                className="mt-auto flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:scale-[1.02] transition"
-                            >
-                                <FaExternalLinkAlt className="w-3 h-3" />
-                                View Profile
-                            </button>
-                        </motion.article>
-                    ))}
-                </motion.div>
-            </div>
-        </section>
-    );
-};
-
-export default Achievements;
+const data = [
+  [
+    "LeetCode Contest Rating",
+    "Peak contest rating of 1653 on LeetCode.",
+    "FEB 26",
+    "https://leetcode.com/u/rajverma04",
+  ],
+  [
+    "DSA Problem Solving",
+    "Solved 650+ problems across LeetCode and GeeksforGeeks.",
+    "JAN 26",
+    "https://codolio.com/profile/rajverma04",
+  ],
+  [
+    "Coding Ninjas Premier League",
+    "Secured AIR-7 in the coding competition.",
+    "MAY 24",
+    "https://ninjasfiles.s3.amazonaws.com/event_certi_image3924276e95e39f6c7f05eaf56e1248069d2109.jpg",
+  ],
+];
+export default function Achievements() {
+  return (
+    <section id="achievements" className="clay-section">
+      <div className="clay-shell">
+        <div className="section-head">
+          <div>
+            <span className="clay-kicker">04 / milestones</span>
+            <h2 className="clay-title">
+              Small wins,
+              <br />
+              <span className="text-[#ff7657]">big energy.</span>
+            </h2>
+          </div>
+          <p className="clay-copy">
+            The numbers and moments that keep me learning.
+          </p>
+        </div>
+        <div className="clay-grid-3">
+          {data.map(([title, desc, date, link], i) => (
+            <motion.a
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+              key={title}
+              className="clay-card clay-panel block"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+            >
+              <div className="flex justify-between items-start">
+                <div className="profile-icon">
+                  <FaTrophy />
+                </div>
+                <span className="clay-kicker">{date}</span>
+              </div>
+              <h3 className="mt-7">{title}</h3>
+              <p className="clay-copy text-sm mt-3">{desc}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-[#db5c40]">
+                View proof <FaExternalLinkAlt />
+              </span>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
