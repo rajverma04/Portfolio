@@ -1,5 +1,5 @@
 import React from "react";
-const resumePdf = "/RAJ_CV.pdf";
+const resumePdf = new URL("../public/RAJ_CV.pdf", import.meta.url).href;
 export default function Resume() {
   return (
     <main className="clay-page min-h-screen py-24">

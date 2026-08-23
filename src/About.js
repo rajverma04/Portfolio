@@ -6,7 +6,7 @@ import Body from "./body";
 import RotatingText from "../RotatingText/RotatingText";
 import { MdAlternateEmail } from "react-icons/md";
 
-const resumePdf = "/RAJ_CV.pdf";
+const resumePdf = new URL("../public/RAJ_CV.pdf", import.meta.url).href;
 
 export default function About() {
   return (
