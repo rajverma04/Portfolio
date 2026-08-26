@@ -60,25 +60,33 @@ import {
 
 const groups = [
   {
-    title: "Languages",
-    description: "The foundations behind every product and service.",
-    icon: "✦",
+    title: "Languages & Core CS",
+    description:
+      "Programming languages and computer science fundamentals behind practical software engineering.",
+    icon: "⌬",
     items: [
       ["C++", <SiCplusplus color="#00599C" />],
       ["JavaScript", <FaJs color="#F7DF1E" />],
       ["TypeScript", <SiTypescript color="#3178C6" />],
       ["SQL", <FaDatabase color="#4479A1" />],
       ["Python", <SiPython color="#3776AB" />],
+      ["Data Structures & Algorithms", <FaProjectDiagram color="#61DAFB" />],
+      ["OOP", <FaObjectGroup color="#FFB74D" />],
+      ["DBMS", <FaDatabase color="#4479A1" />],
+      ["Operating Systems", <FaMicrochip color="#78909C" />],
+      ["Computer Networks", <FaNetworkWired color="#4CAF50" />],
+      ["System Design", <FaSitemap color="#D63AFF" />],
     ],
   },
+
   {
     title: "Frontend",
-    description: "Interfaces with a sharp eye for flow.",
+    description:
+      "Modern interfaces focused on performance, responsiveness, and user experience.",
     icon: "⌁",
     items: [
       ["React.js", <FaReact color="#61DAFB" />],
       ["Redux Toolkit", <SiRedux color="#764ABC" />],
-      ["React Hooks", <FaCode color="#61DAFB" />],
       ["React Router", <SiReactrouter color="#CA4245" />],
       ["Tailwind CSS", <SiTailwindcss color="#38BDF8" />],
       ["Bootstrap", <SiBootstrap color="#7952B3" />],
@@ -86,27 +94,29 @@ const groups = [
       ["CSS3", <FaCss3Alt color="#1572B6" />],
     ],
   },
+
   {
     title: "Backend & APIs",
-    description: "Services and integrations that stay dependable under load.",
+    description:
+      "Backend services, APIs, authentication, and reliable application architecture.",
     icon: "⌘",
     items: [
       ["Node.js", <FaNodeJs color="#68A063" />],
       ["Express.js", <SiExpress />],
-      ["REST APIs", <FaServer color="#61DAFB" />],
-      ["REST API Design", <FaRoute color="#61DAFB" />],
+      ["REST API Development", <FaServer color="#61DAFB" />],
       ["WebSockets", <SiSocketdotio />],
       ["JWT", <SiJsonwebtokens color="#D63AFF" />],
       ["OAuth 2.0", <FaShieldAlt color="#4CAF50" />],
+      ["Authentication", <FaShieldAlt color="#4CAF50" />],
       ["Zod", <SiZod color="#3E67B1" />],
       ["Third-Party API Integration", <FaExchangeAlt color="#FFB74D" />],
-      ["Webhooks", <FaLink color="#FFB74D" />],
     ],
   },
+
   {
-    title: "Data & Caching",
+    title: "Databases & Data",
     description:
-      "Reliable storage and fast access patterns for growing systems.",
+      "Data storage, ORM tools, caching, and efficient data access patterns.",
     icon: "◒",
     items: [
       ["PostgreSQL", <SiPostgresql color="#4169E1" />],
@@ -115,13 +125,13 @@ const groups = [
       ["Redis", <SiRedis color="#DC382D" />],
       ["Prisma", <SiPrisma color="#2D3748" />],
       ["Caching", <FaBolt color="#F7C948" />],
-      ["Token Revocation", <FaLock color="#D63AFF" />],
     ],
   },
+
   {
-    title: "Cloud & DevOps",
+    title: "Cloud, DevOps & Observability",
     description:
-      "Infrastructure, automation, and deployment for production work.",
+      "Infrastructure, deployment automation, monitoring, logging, and distributed systems.",
     icon: "◇",
     items: [
       ["AWS (EC2, S3)", <FaAws color="#FF9900" />],
@@ -132,57 +142,24 @@ const groups = [
       ["CI/CD", <FaCogs color="#78909C" />],
       ["Linux", <SiLinux />],
       ["Vercel", <SiVercel />],
-      ["Git", <FaGitAlt color="#F05032" />],
-    ],
-  },
-  {
-    title: "Messaging & Observability",
-    description:
-      "Signals and event systems that make distributed services visible.",
-    icon: "◌",
-    items: [
       ["Apache Kafka", <SiApachekafka color="#231F20" />],
       ["Prometheus", <SiPrometheus color="#E6522C" />],
       ["Grafana", <SiGrafana color="#F46800" />],
       ["Loki", <FaChartLine color="#F46800" />],
     ],
   },
+
   {
     title: "Developer Tools",
-    description: "The everyday instruments of the craft.",
+    description: "Tools used for development, testing, collaboration, and design.",
     icon: "⌂",
     items: [
+      ["Git", <FaGitAlt color="#F05032" />],
       ["GitHub", <FaGithub />],
       ["Postman", <SiPostman color="#FF6C37" />],
       ["Axios", <SiAxios color="#5A29E4" />],
-      ["Monaco Editor", <FaCode color="#007ACC" />],
       ["Vite", <SiVite color="#646CFF" />],
       ["Figma", <SiFigma color="#A259FF" />],
-    ],
-  },
-  {
-    title: "Backend Concepts",
-    description:
-      "Engineering practices that keep APIs clear, safe, and resilient.",
-    icon: "◎",
-    items: [
-      ["Authentication", <FaShieldAlt color="#4CAF50" />],
-      ["Asynchronous Processing", <FaCogs color="#78909C" />],
-      ["Error Handling", <FaBug color="#E85D75" />],
-    ],
-  },
-  {
-    title: "Core CS",
-    description:
-      "Computer science fundamentals behind practical system design.",
-    icon: "⌬",
-    items: [
-      ["Data Structures & Algorithms", <FaProjectDiagram color="#61DAFB" />],
-      ["OOP", <FaObjectGroup color="#FFB74D" />],
-      ["DBMS", <FaDatabase color="#4479A1" />],
-      ["Operating Systems", <FaMicrochip color="#78909C" />],
-      ["Computer Networks", <FaNetworkWired color="#4CAF50" />],
-      ["System Design", <FaSitemap color="#D63AFF" />],
     ],
   },
 ];
